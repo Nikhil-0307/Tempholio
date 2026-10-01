@@ -1,0 +1,2418 @@
+/* =========================================================
+   TEMPHOLIO — OCEAN SKY BLUE EXPERIENCE
+   Waves • Fish • Bubbles • Ocean Glass
+   ========================================================= */
+
+:root {
+  --sky: #38bdf8;
+  --sky-light: #7dd3fc;
+  --ocean: #0284c7;
+  --ocean-dark: #075985;
+  --deep: #06283d;
+  --deepest: #031522;
+  --aqua: #22d3ee;
+  --mint: #5eead4;
+  --white: #f0fdff;
+  --text: #e6faff;
+  --muted: #a8d4e5;
+  --glass: rgba(4, 45, 70, 0.58);
+  --glass-light: rgba(255, 255, 255, 0.08);
+  --border: rgba(125, 211, 252, 0.22);
+  --shadow: rgba(0, 55, 90, 0.35);
+}
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  background: #031522;
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      180deg,
+      #38bdf8 0%,
+      #168dcc 18%,
+      #086a9e 38%,
+      #075985 62%,
+      #043b5c 82%,
+      #031522 100%
+    );
+}
+
+/* =========================================================
+   OCEAN BACKGROUND
+   ========================================================= */
+
+.ocean-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 18% 18%,
+      rgba(255, 255, 255, 0.17),
+      transparent 22%
+    ),
+    radial-gradient(
+      circle at 82% 28%,
+      rgba(34, 211, 238, 0.18),
+      transparent 25%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(125, 211, 252, 0.12),
+      transparent 45%
+    );
+}
+
+/* Sunlight coming from the surface */
+
+.ocean-background::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: 8%;
+  width: 38%;
+  height: 110%;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.2),
+    rgba(125, 211, 252, 0.03),
+    transparent
+  );
+
+  transform: rotate(13deg);
+  filter: blur(12px);
+  opacity: 0.7;
+}
+
+/* Second sunlight beam */
+
+.ocean-background::after {
+  content: "";
+  position: absolute;
+  top: -15%;
+  right: 12%;
+  width: 25%;
+  height: 100%;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.13),
+    transparent 70%
+  );
+
+  transform: rotate(-15deg);
+  filter: blur(18px);
+}
+
+/* =========================================================
+   OCEAN GLOWS
+   ========================================================= */
+
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.45;
+  animation: oceanGlow 9s ease-in-out infinite alternate;
+}
+
+.glow-one {
+  width: 300px;
+  height: 300px;
+  top: 8%;
+  left: -80px;
+  background: rgba(125, 211, 252, 0.65);
+}
+
+.glow-two {
+  width: 350px;
+  height: 350px;
+  top: 40%;
+  right: -120px;
+  background: rgba(34, 211, 238, 0.42);
+  animation-delay: 2s;
+}
+
+.glow-three {
+  width: 260px;
+  height: 260px;
+  bottom: -100px;
+  left: 40%;
+  background: rgba(45, 212, 191, 0.3);
+  animation-delay: 4s;
+}
+
+@keyframes oceanGlow {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  to {
+    transform: translate3d(25px, -20px, 0) scale(1.12);
+  }
+}
+
+/* =========================================================
+   BUBBLES
+   ========================================================= */
+
+.ocean-background .particle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(224, 251, 255, 0.45);
+
+  background: rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    inset 0 0 8px rgba(255, 255, 255, 0.15),
+    0 0 10px rgba(125, 211, 252, 0.2);
+
+  animation: bubbleFloat 10s linear infinite;
+}
+
+.particle-one {
+  width: 13px;
+  height: 13px;
+  left: 9%;
+  bottom: -30px;
+  animation-duration: 11s;
+}
+
+.particle-two {
+  width: 7px;
+  height: 7px;
+  left: 25%;
+  bottom: -20px;
+  animation-duration: 8s;
+  animation-delay: 2s;
+}
+
+.particle-three {
+  width: 18px;
+  height: 18px;
+  left: 48%;
+  bottom: -40px;
+  animation-duration: 13s;
+  animation-delay: 1s;
+}
+
+.particle-four {
+  width: 9px;
+  height: 9px;
+  left: 67%;
+  bottom: -20px;
+  animation-duration: 9s;
+  animation-delay: 3s;
+}
+
+.particle-five {
+  width: 15px;
+  height: 15px;
+  left: 82%;
+  bottom: -30px;
+  animation-duration: 12s;
+  animation-delay: 4s;
+}
+
+.particle-six {
+  width: 6px;
+  height: 6px;
+  left: 92%;
+  bottom: -15px;
+  animation-duration: 7s;
+  animation-delay: 1s;
+}
+
+@keyframes bubbleFloat {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: translateY(-45vh) translateX(20px);
+  }
+
+  100% {
+    transform: translateY(-110vh) translateX(-15px);
+    opacity: 0;
+  }
+}
+
+/* =========================================================
+   FISH
+   ========================================================= */
+
+/*
+   Fish are created using CSS shapes.
+   They remain subtle so the website still feels premium.
+*/
+
+.ocean-background .particle::after {
+  content: "";
+}
+
+/* Add fish-like silhouettes using extra pseudo-elements */
+
+.ocean-background .glow-one::after,
+.ocean-background .glow-two::after,
+.ocean-background .glow-three::after {
+  content: "🐟";
+  position: absolute;
+  font-size: 22px;
+  filter: saturate(0.55);
+  opacity: 0.3;
+  animation: fishSwim 16s linear infinite;
+}
+
+.glow-one::after {
+  top: 180px;
+  left: 0;
+  animation-delay: 1s;
+}
+
+.glow-two::after {
+  top: 120px;
+  left: -80px;
+  animation-duration: 20s;
+  animation-delay: 5s;
+}
+
+.glow-three::after {
+  top: 40px;
+  left: -100px;
+  font-size: 17px;
+  animation-duration: 23s;
+  animation-delay: 3s;
+}
+
+@keyframes fishSwim {
+  0% {
+    transform: translateX(-30px) scaleX(1);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.3;
+  }
+
+  45% {
+    transform: translateX(45vw) translateY(-20px) scaleX(1);
+  }
+
+  50% {
+    transform: translateX(50vw) translateY(-20px) scaleX(-1);
+  }
+
+  90% {
+    opacity: 0.25;
+  }
+
+  100% {
+    transform: translateX(110vw) translateY(15px) scaleX(-1);
+    opacity: 0;
+  }
+}
+
+/* =========================================================
+   WAVE SYSTEM
+   ========================================================= */
+
+.app::before,
+.app::after {
+  content: "";
+  position: fixed;
+  left: -10%;
+  width: 120%;
+  height: 180px;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: 50% 50% 0 0;
+}
+
+.app::before {
+  bottom: -125px;
+
+  background: rgba(3, 21, 34, 0.48);
+
+  transform: rotate(-2deg);
+  box-shadow:
+    0 -20px 40px rgba(34, 211, 238, 0.08),
+    inset 0 12px 25px rgba(125, 211, 252, 0.08);
+
+  animation: waveMove 12s ease-in-out infinite alternate;
+}
+
+.app::after {
+  bottom: -155px;
+
+  background: rgba(2, 35, 53, 0.7);
+
+  transform: rotate(2deg);
+  animation: waveMoveReverse 15s ease-in-out infinite alternate;
+}
+
+@keyframes waveMove {
+  from {
+    transform: translateX(-2%) rotate(-2deg);
+  }
+
+  to {
+    transform: translateX(2%) rotate(2deg);
+  }
+}
+
+@keyframes waveMoveReverse {
+  from {
+    transform: translateX(2%) rotate(2deg);
+  }
+
+  to {
+    transform: translateX(-2%) rotate(-2deg);
+  }
+}
+
+/* =========================================================
+   AUTH PAGE
+   ========================================================= */
+
+.auth-container {
+  position: relative;
+  z-index: 3;
+
+  min-height: calc(100vh - 75px);
+
+  width: min(1180px, 92%);
+
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 460px;
+  align-items: center;
+  gap: 80px;
+
+  padding: 70px 0;
+}
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.brand-section {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+}
+
+.brand-symbol,
+.mini-symbol {
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+}
+
+.brand-symbol {
+  width: 54px;
+  height: 54px;
+  margin-bottom: 25px;
+}
+
+.brand-symbol span,
+.mini-symbol span {
+  display: block;
+  width: 9px;
+  border-radius: 10px;
+
+  background: linear-gradient(
+    180deg,
+    #e0fbff,
+    #22d3ee
+  );
+
+  box-shadow:
+    0 0 12px rgba(34, 211, 238, 0.6),
+    0 0 25px rgba(56, 189, 248, 0.25);
+}
+
+.brand-symbol span:nth-child(1),
+.mini-symbol span:nth-child(1) {
+  height: 24px;
+}
+
+.brand-symbol span:nth-child(2),
+.mini-symbol span:nth-child(2) {
+  height: 39px;
+}
+
+.brand-symbol span:nth-child(3),
+.mini-symbol span:nth-child(3) {
+  height: 54px;
+}
+
+.brand-section h1 {
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.07em;
+  font-weight: 800;
+
+  color: #f2fdff;
+
+  text-shadow:
+    0 4px 30px rgba(0, 30, 55, 0.35);
+}
+
+.tagline {
+  margin-top: 22px;
+
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+
+  color: #d9faff;
+}
+
+.brand-description {
+  max-width: 480px;
+  margin-top: 18px;
+
+  color: rgba(232, 250, 255, 0.78);
+
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.explore-line {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  margin-top: 45px;
+
+  color: rgba(226, 250, 255, 0.58);
+}
+
+.explore-line span {
+  width: 45px;
+  height: 1px;
+  background: rgba(224, 251, 255, 0.35);
+}
+
+.explore-line small {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+}
+
+/* =========================================================
+   GLASS AUTH PANEL
+   ========================================================= */
+
+.auth-panel {
+  position: relative;
+  z-index: 4;
+
+  padding: 42px;
+
+  border: 1px solid rgba(224, 251, 255, 0.22);
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(8, 75, 110, 0.68),
+      rgba(2, 34, 53, 0.68)
+    );
+
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+
+  box-shadow:
+    0 25px 80px rgba(0, 25, 45, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.13);
+}
+
+.auth-header {
+  margin-bottom: 30px;
+}
+
+.eyebrow {
+  display: inline-block;
+
+  color: #a7f3ff;
+
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.auth-header h2 {
+  margin-top: 12px;
+
+  font-size: 2rem;
+  line-height: 1.15;
+
+  color: #f0fdff;
+}
+
+.auth-header p {
+  margin-top: 10px;
+
+  color: rgba(218, 246, 255, 0.65);
+
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-group label {
+  color: #d8f8ff;
+
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.input-group input {
+  width: 100%;
+
+  padding: 14px 16px;
+
+  border: 1px solid rgba(125, 211, 252, 0.2);
+  border-radius: 12px;
+
+  outline: none;
+
+  background: rgba(1, 27, 43, 0.55);
+
+  color: #effcff;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.input-group input::placeholder {
+  color: rgba(183, 222, 235, 0.42);
+}
+
+.input-group input:focus {
+  border-color: rgba(125, 211, 252, 0.7);
+
+  background: rgba(2, 39, 59, 0.72);
+
+  box-shadow:
+    0 0 0 3px rgba(56, 189, 248, 0.09),
+    0 0 20px rgba(34, 211, 238, 0.08);
+}
+
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.forgot-button {
+  border: none;
+  background: none;
+
+  color: #7dd3fc;
+
+  font-size: 0.72rem;
+}
+
+.forgot-button:hover {
+  color: #cffafe;
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.submit-button,
+.continue-button,
+.discover-button {
+  border: none;
+
+  color: #032236;
+
+  background: linear-gradient(
+    135deg,
+    #d9fbff,
+    #67e8f9,
+    #38bdf8
+  );
+
+  box-shadow:
+    0 10px 30px rgba(14, 116, 144, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+
+  font-weight: 750;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+.submit-button {
+  width: 100%;
+
+  margin-top: 8px;
+
+  padding: 15px 18px;
+
+  border-radius: 13px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.submit-button:hover,
+.continue-button:hover:not(:disabled),
+.discover-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 15px 35px rgba(14, 116, 144, 0.4),
+    0 0 25px rgba(34, 211, 238, 0.16);
+}
+
+.submit-button strong,
+.continue-button strong,
+.discover-button strong {
+  font-size: 1.2rem;
+}
+
+.submit-button:active,
+.continue-button:active,
+.discover-button:active {
+  transform: translateY(0);
+}
+
+.switch-auth {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+
+  margin-top: 23px;
+
+  font-size: 0.78rem;
+
+  color: rgba(218, 246, 255, 0.55);
+}
+
+.switch-auth button {
+  border: none;
+  background: none;
+
+  color: #7dd3fc;
+
+  font-weight: 700;
+}
+
+.switch-auth button:hover {
+  color: #d9faff;
+}
+
+.security-note {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  margin-top: 25px;
+
+  color: rgba(213, 244, 252, 0.45);
+
+  font-size: 0.68rem;
+}
+
+.security-dot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #5eead4;
+
+  box-shadow: 0 0 10px rgba(94, 234, 212, 0.7);
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+  position: relative;
+  z-index: 4;
+
+  min-height: 75px;
+
+  width: min(1180px, 92%);
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: rgba(225, 249, 255, 0.48);
+
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+}
+
+.footer > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer i {
+  font-style: normal;
+  color: #7dd3fc;
+}
+
+/* =========================================================
+   ONBOARDING PAGE
+   ========================================================= */
+
+.onboarding-page {
+  min-height: 100vh;
+}
+
+.onboarding-container {
+  position: relative;
+  z-index: 3;
+
+  width: min(1050px, 92%);
+
+  margin: 0 auto;
+
+  padding: 38px 0 80px;
+}
+
+/* =========================================================
+   ONBOARDING TOP
+   ========================================================= */
+
+.onboarding-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 60px;
+}
+
+.mini-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: #effcff;
+
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.mini-symbol {
+  width: 28px;
+  height: 27px;
+  gap: 3px;
+}
+
+.mini-symbol span {
+  width: 5px;
+}
+
+.mini-symbol span:nth-child(1) {
+  height: 11px;
+}
+
+.mini-symbol span:nth-child(2) {
+  height: 19px;
+}
+
+.mini-symbol span:nth-child(3) {
+  height: 27px;
+}
+
+.progress-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  color: rgba(225, 250, 255, 0.55);
+
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.progress-line {
+  position: relative;
+
+  width: 100px;
+  height: 3px;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background: rgba(224, 251, 255, 0.12);
+}
+
+.progress-line div {
+  height: 100%;
+
+  border-radius: inherit;
+
+  background: linear-gradient(
+    90deg,
+    #22d3ee,
+    #7dd3fc
+  );
+
+  box-shadow: 0 0 10px rgba(34, 211, 238, 0.45);
+
+  transition: width 0.4s ease;
+}
+
+/* =========================================================
+   ONBOARDING HEADER
+   ========================================================= */
+
+.onboarding-header {
+  max-width: 700px;
+
+  margin: 0 auto 42px;
+
+  text-align: center;
+}
+
+.onboarding-header h1 {
+  margin-top: 14px;
+
+  font-size: clamp(2.3rem, 5vw, 4.4rem);
+
+  line-height: 1;
+
+  letter-spacing: -0.055em;
+
+  color: #f2fdff;
+
+  text-shadow:
+    0 5px 30px rgba(0, 35, 55, 0.25);
+}
+
+.onboarding-header h1 span {
+  display: block;
+
+  color: #bff8ff;
+}
+
+.onboarding-header p {
+  max-width: 570px;
+
+  margin: 18px auto 0;
+
+  color: rgba(222, 248, 255, 0.68);
+
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   CAREER / FIELD GRID
+   ========================================================= */
+
+.career-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 15px;
+
+  max-width: 820px;
+
+  margin: 0 auto;
+}
+
+.career-card {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  min-height: 125px;
+
+  padding: 22px;
+
+  text-align: left;
+
+  border: 1px solid rgba(224, 251, 255, 0.13);
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(11, 86, 123, 0.48),
+      rgba(2, 39, 60, 0.52)
+    );
+
+  color: #effcff;
+
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.career-card:hover {
+  transform: translateY(-4px);
+
+  border-color: rgba(125, 211, 252, 0.42);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(14, 105, 145, 0.58),
+      rgba(2, 47, 70, 0.62)
+    );
+
+  box-shadow:
+    0 15px 35px rgba(0, 38, 62, 0.25),
+    0 0 25px rgba(34, 211, 238, 0.07);
+}
+
+.career-card.selected {
+  border-color: rgba(94, 234, 212, 0.75);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(10, 117, 143, 0.68),
+      rgba(3, 58, 78, 0.72)
+    );
+
+  box-shadow:
+    0 15px 35px rgba(0, 45, 65, 0.28),
+    0 0 28px rgba(34, 211, 238, 0.12);
+}
+
+.career-icon {
+  width: 54px;
+  height: 54px;
+
+  display: grid;
+  place-items: center;
+
+  flex-shrink: 0;
+
+  border-radius: 16px;
+
+  background: rgba(224, 251, 255, 0.08);
+
+  font-size: 1.5rem;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.career-content {
+  margin-left: 17px;
+  padding-right: 35px;
+}
+
+.career-content h3 {
+  font-size: 1.05rem;
+
+  color: #effcff;
+}
+
+.career-content p {
+  margin-top: 6px;
+
+  color: rgba(211, 242, 250, 0.6);
+
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+.selection-circle {
+  position: absolute;
+
+  top: 20px;
+  right: 20px;
+
+  width: 22px;
+  height: 22px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(224, 251, 255, 0.22);
+
+  border-radius: 50%;
+
+  color: transparent;
+
+  background: rgba(1, 30, 47, 0.35);
+
+  font-size: 0.7rem;
+
+  transition: 0.25s ease;
+}
+
+.career-card.selected .selection-circle {
+  border-color: #5eead4;
+
+  color: #063447;
+
+  background: #5eead4;
+
+  box-shadow: 0 0 15px rgba(94, 234, 212, 0.35);
+
+  font-weight: 800;
+}
+
+/* =========================================================
+   STEP 3
+   ========================================================= */
+
+.step-three-header {
+  margin-bottom: 35px;
+}
+
+.interest-section,
+.goal-section {
+  width: 100%;
+  max-width: 900px;
+
+  margin: 0 auto 35px;
+}
+
+.interest-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  margin-bottom: 17px;
+}
+
+.section-label {
+  display: block;
+
+  color: #8cefff;
+
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.interest-heading h3 {
+  margin-top: 5px;
+
+  color: #effcff;
+
+  font-size: 1.2rem;
+}
+
+.selection-count {
+  padding: 6px 11px;
+
+  border: 1px solid rgba(125, 211, 252, 0.18);
+
+  border-radius: 20px;
+
+  background: rgba(224, 251, 255, 0.06);
+
+  color: #b8f5ff;
+
+  font-size: 0.68rem;
+}
+
+.interest-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 10px;
+}
+
+.interest-card {
+  position: relative;
+
+  min-height: 76px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 13px 35px 13px 13px;
+
+  border: 1px solid rgba(224, 251, 255, 0.12);
+
+  border-radius: 14px;
+
+  background: rgba(2, 43, 64, 0.48);
+
+  color: rgba(236, 252, 255, 0.82);
+
+  text-align: left;
+
+  transition:
+    transform 0.22s ease,
+    border-color 0.22s ease,
+    background 0.22s ease;
+}
+
+.interest-card:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(125, 211, 252, 0.38);
+
+  background: rgba(5, 69, 96, 0.55);
+}
+
+.interest-card.selected {
+  border-color: rgba(94, 234, 212, 0.72);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(10, 106, 129, 0.62),
+      rgba(2, 62, 81, 0.65)
+    );
+
+  box-shadow:
+    0 8px 22px rgba(0, 44, 62, 0.2),
+    0 0 18px rgba(34, 211, 238, 0.08);
+}
+
+.interest-icon {
+  width: 34px;
+  height: 34px;
+
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 10px;
+
+  background: rgba(224, 251, 255, 0.07);
+
+  font-size: 1rem;
+}
+
+.interest-card > span:nth-child(2) {
+  font-size: 0.75rem;
+  line-height: 1.3;
+}
+
+.interest-check {
+  position: absolute;
+
+  top: 50%;
+  right: 10px;
+
+  width: 18px;
+  height: 18px;
+
+  display: grid;
+  place-items: center;
+
+  transform: translateY(-50%);
+
+  border: 1px solid rgba(224, 251, 255, 0.2);
+
+  border-radius: 50%;
+
+  color: transparent;
+
+  background: rgba(1, 29, 44, 0.3);
+
+  font-size: 0.58rem;
+
+  transition: 0.22s ease;
+}
+
+.interest-card.selected .interest-check {
+  border-color: #5eead4;
+
+  color: #063447;
+
+  background: #5eead4;
+
+  box-shadow: 0 0 10px rgba(94, 234, 212, 0.35);
+
+  font-weight: 800;
+}
+
+/* =========================================================
+   GOALS
+   ========================================================= */
+
+.goal-section {
+  padding-top: 5px;
+}
+
+.goal-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 12px;
+}
+
+.goal-card {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  min-height: 100px;
+
+  padding: 17px 45px 17px 17px;
+
+  border: 1px solid rgba(224, 251, 255, 0.12);
+
+  border-radius: 16px;
+
+  background: rgba(2, 43, 64, 0.48);
+
+  color: #effcff;
+
+  text-align: left;
+
+  transition:
+    transform 0.22s ease,
+    border-color 0.22s ease,
+    background 0.22s ease;
+}
+
+.goal-card:hover {
+  transform: translateY(-3px);
+
+  border-color: rgba(125, 211, 252, 0.38);
+
+  background: rgba(5, 69, 96, 0.55);
+}
+
+.goal-card.selected {
+  border-color: rgba(94, 234, 212, 0.78);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(10, 106, 129, 0.65),
+      rgba(2, 62, 81, 0.68)
+    );
+
+  box-shadow:
+    0 10px 25px rgba(0, 43, 60, 0.22),
+    0 0 20px rgba(34, 211, 238, 0.08);
+}
+
+.goal-icon {
+  width: 45px;
+  height: 45px;
+
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  margin-right: 13px;
+
+  border-radius: 13px;
+
+  background: rgba(224, 251, 255, 0.07);
+
+  font-size: 1.2rem;
+}
+
+.goal-card h4 {
+  color: #effcff;
+
+  font-size: 0.86rem;
+}
+
+.goal-card p {
+  margin-top: 5px;
+
+  color: rgba(211, 242, 250, 0.57);
+
+  font-size: 0.7rem;
+
+  line-height: 1.45;
+}
+
+/* IMPORTANT: HIGH-CONTRAST GOAL TICK */
+
+.goal-card.selected .selection-circle {
+  border-color: #5eead4;
+
+  color: #043447;
+
+  background: #5eead4;
+
+  box-shadow:
+    0 0 10px rgba(94, 234, 212, 0.45),
+    0 0 20px rgba(34, 211, 238, 0.16);
+
+  font-weight: 900;
+}
+
+/* =========================================================
+   ONBOARDING ACTIONS
+   ========================================================= */
+
+.onboarding-actions {
+  position: relative;
+  z-index: 5;
+
+  width: 100%;
+  max-width: 900px;
+
+  margin: 25px auto 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 12px;
+}
+
+.back-button {
+  padding: 13px 19px;
+
+  border: 1px solid rgba(224, 251, 255, 0.16);
+
+  border-radius: 11px;
+
+  background: rgba(1, 31, 47, 0.38);
+
+  color: rgba(224, 249, 255, 0.7);
+
+  transition: 0.22s ease;
+}
+
+.back-button:hover {
+  border-color: rgba(125, 211, 252, 0.4);
+
+  color: #effcff;
+
+  background: rgba(5, 66, 91, 0.5);
+}
+
+.continue-button {
+  min-width: 180px;
+
+  padding: 14px 18px;
+
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 25px;
+}
+
+.continue-button:disabled {
+  cursor: not-allowed;
+
+  opacity: 0.38;
+
+  filter: grayscale(0.2);
+
+  transform: none;
+
+  box-shadow: none;
+}
+
+/* =========================================================
+   ONBOARDING FOOTER
+   ========================================================= */
+
+.onboarding-footer {
+  position: relative;
+  z-index: 4;
+
+  padding: 0 0 28px;
+
+  text-align: center;
+
+  color: rgba(225, 249, 255, 0.38);
+
+  font-size: 0.6rem;
+
+  letter-spacing: 0.18em;
+}
+
+/* =========================================================
+   COMPLETION PAGE
+   ========================================================= */
+
+.completion-page {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.completion-container {
+  position: relative;
+  z-index: 3;
+
+  width: min(900px, 92%);
+
+  margin: auto;
+
+  padding: 80px 0;
+
+  text-align: center;
+}
+
+.completion-symbol {
+  width: 76px;
+  height: 76px;
+
+  display: grid;
+  place-items: center;
+
+  margin: 0 auto 25px;
+
+  border: 1px solid rgba(94, 234, 212, 0.6);
+
+  border-radius: 50%;
+
+  background: rgba(94, 234, 212, 0.12);
+
+  color: #8ffff0;
+
+  font-size: 2rem;
+
+  box-shadow:
+    0 0 25px rgba(94, 234, 212, 0.2),
+    inset 0 0 20px rgba(94, 234, 212, 0.08);
+}
+
+.completion-container h1 {
+  margin-top: 15px;
+
+  font-size: clamp(2.5rem, 6vw, 5rem);
+
+  line-height: 1;
+
+  letter-spacing: -0.06em;
+
+  color: #f1fdff;
+}
+
+.completion-container h1 span {
+  display: block;
+
+  color: #bff8ff;
+}
+
+.completion-container > p {
+  max-width: 550px;
+
+  margin: 20px auto 0;
+
+  color: rgba(224, 248, 255, 0.65);
+
+  line-height: 1.7;
+}
+
+.completion-summary {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  margin: 45px 0;
+
+  border: 1px solid rgba(224, 251, 255, 0.12);
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  background: rgba(2, 43, 64, 0.45);
+
+  backdrop-filter: blur(15px);
+}
+
+.completion-summary div {
+  padding: 20px 14px;
+
+  border-right: 1px solid rgba(224, 251, 255, 0.08);
+}
+
+.completion-summary div:last-child {
+  border-right: none;
+}
+
+.completion-summary small {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #7dd3fc;
+
+  font-size: 0.58rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.13em;
+}
+
+.completion-summary strong {
+  display: block;
+
+  color: #eaffff;
+
+  font-size: 0.75rem;
+}
+
+.discover-button {
+  min-width: 240px;
+
+  padding: 16px 20px;
+
+  border-radius: 13px;
+
+  display: inline-flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 35px;
+}
+
+/* =========================================================
+   FIELD GRID
+   ========================================================= */
+
+.field-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.field-grid .career-card {
+  min-height: 135px;
+}
+
+/* =========================================================
+   RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 950px) {
+  .auth-container {
+    grid-template-columns: 1fr;
+
+    gap: 50px;
+
+    padding: 60px 0;
+  }
+
+  .brand-section {
+    max-width: 650px;
+    margin: 0 auto;
+
+    text-align: center;
+  }
+
+  .brand-symbol {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .brand-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .explore-line {
+    justify-content: center;
+  }
+
+  .auth-panel {
+    width: min(500px, 100%);
+    margin: 0 auto;
+  }
+
+  .field-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .interest-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+  .auth-container {
+    width: 90%;
+
+    padding: 45px 0 30px;
+  }
+
+  .brand-section h1 {
+    font-size: 3.3rem;
+  }
+
+  .brand-description {
+    font-size: 0.88rem;
+  }
+
+  .auth-panel {
+    padding: 27px 22px;
+
+    border-radius: 22px;
+  }
+
+  .footer {
+    width: 90%;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 20px 0;
+  }
+
+  .onboarding-container {
+    width: 90%;
+
+    padding-top: 25px;
+  }
+
+  .onboarding-top {
+    margin-bottom: 45px;
+  }
+
+  .progress-line {
+    width: 60px;
+  }
+
+  .career-grid,
+  .field-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .career-card {
+    min-height: 105px;
+  }
+
+  .interest-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .goal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .onboarding-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .onboarding-header p {
+    font-size: 0.84rem;
+  }
+
+  .completion-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .completion-summary div:nth-child(2) {
+    border-right: none;
+  }
+
+  .completion-summary div:nth-child(-n + 2) {
+    border-bottom: 1px solid rgba(224, 251, 255, 0.08);
+  }
+
+  .onboarding-actions {
+    justify-content: stretch;
+  }
+
+  .continue-button {
+    flex: 1;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — SMALL PHONE
+   ========================================================= */
+
+@media (max-width: 420px) {
+  .brand-section h1 {
+    font-size: 2.8rem;
+  }
+
+  .auth-header h2 {
+    font-size: 1.65rem;
+  }
+
+  .interest-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .interest-card {
+    min-height: 64px;
+  }
+
+  .completion-container h1 {
+    font-size: 2.7rem;
+  }
+
+  .completion-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .completion-summary div {
+    border-right: none !important;
+
+    border-bottom: 1px solid rgba(224, 251, 255, 0.08);
+  }
+
+  .completion-summary div:last-child {
+    border-bottom: none;
+  }
+
+  .discover-button {
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+/* =========================================================
+   TEMPHOLIO OCEAN — STEP 1
+   Realistic underwater atmosphere
+   ========================================================= */
+
+.ocean-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at 50% -10%,
+      rgba(186, 239, 255, 0.42) 0%,
+      rgba(56, 189, 248, 0.18) 24%,
+      transparent 52%
+    ),
+    linear-gradient(
+      180deg,
+      #38bdf8 0%,
+      #168dcc 22%,
+      #0877ad 43%,
+      #075985 68%,
+      #043b5c 86%,
+      #021c2c 100%
+    );
+}
+
+/* Surface brightness */
+
+.ocean-background::before {
+  content: "";
+  position: absolute;
+
+  top: -20%;
+  left: 50%;
+
+  width: 100%;
+  height: 70%;
+
+  transform: translateX(-50%);
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(255, 255, 255, 0.24) 0%,
+      rgba(186, 239, 255, 0.12) 25%,
+      transparent 68%
+    );
+
+  filter: blur(12px);
+}
+
+/* Deep-water darkness */
+
+.ocean-background::after {
+  content: "";
+
+  position: absolute;
+  inset: 35% 0 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(2, 28, 44, 0.08) 30%,
+      rgba(1, 17, 28, 0.48) 100%
+    );
+}
+
+/* =========================================================
+   UNDERWATER LIGHT RAYS
+   ========================================================= */
+
+.ocean-background .glow {
+  position: absolute;
+
+  top: -25%;
+
+  width: 150px;
+  height: 125%;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(235, 252, 255, 0.18),
+      rgba(125, 211, 252, 0.06),
+      transparent 75%
+    );
+
+  filter: blur(14px);
+
+  opacity: 0.55;
+
+  transform-origin: top center;
+
+  animation: waterRay 10s ease-in-out infinite alternate;
+}
+
+.ocean-background .glow-one {
+  left: 12%;
+  transform: rotate(12deg);
+}
+
+.ocean-background .glow-two {
+  left: 47%;
+  width: 190px;
+  opacity: 0.4;
+  transform: rotate(-8deg);
+
+  animation-delay: -3s;
+}
+
+.ocean-background .glow-three {
+  right: 10%;
+  left: auto;
+  width: 130px;
+  opacity: 0.32;
+  transform: rotate(-15deg);
+
+  animation-delay: -6s;
+}
+
+@keyframes waterRay {
+  0% {
+    opacity: 0.25;
+    transform: rotate(10deg) translateX(-10px);
+  }
+
+  50% {
+    opacity: 0.55;
+  }
+
+  100% {
+    opacity: 0.32;
+    transform: rotate(14deg) translateX(15px);
+  }
+}
+
+/* =========================================================
+   SOFT WATER DEPTH
+   ========================================================= */
+
+.ocean-background {
+  isolation: isolate;
+}
+
+.ocean-background .particle {
+  position: absolute;
+
+  border-radius: 50%;
+
+  background: rgba(220, 250, 255, 0.28);
+
+  box-shadow:
+    0 0 8px rgba(186, 239, 255, 0.25);
+
+  animation: underwaterDrift 12s ease-in-out infinite;
+}
+
+@keyframes underwaterDrift {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.15;
+  }
+
+  50% {
+    transform: translate3d(18px, -30px, 0);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translate3d(-12px, -65px, 0);
+    opacity: 0.08;
+  }
+}
+/* =========================================================
+   TEMPHOLIO OCEAN — STEP 2
+   Realistic bubbles + underwater particles
+   ========================================================= */
+
+/* Make bubbles feel like they are inside the water */
+
+.ocean-background .particle {
+  background: transparent;
+  border: 1px solid rgba(225, 250, 255, 0.55);
+
+  box-shadow:
+    inset 2px 2px 3px rgba(255, 255, 255, 0.35),
+    inset -2px -2px 4px rgba(0, 45, 75, 0.18),
+    0 0 7px rgba(186, 239, 255, 0.18);
+
+  backdrop-filter: blur(1px);
+
+  animation:
+    bubbleRise 13s ease-in-out infinite,
+    bubbleSway 5s ease-in-out infinite;
+}
+
+/* Bubble highlight */
+
+.ocean-background .particle::before {
+  content: "";
+
+  position: absolute;
+
+  width: 30%;
+  height: 30%;
+
+  top: 18%;
+  left: 20%;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.7);
+
+  filter: blur(0.5px);
+}
+
+/* Small bubbles */
+
+.ocean-background .particle:nth-child(1) {
+  width: 7px;
+  height: 7px;
+  left: 14%;
+  bottom: -20px;
+  animation-delay: -2s;
+}
+
+.ocean-background .particle:nth-child(2) {
+  width: 12px;
+  height: 12px;
+  left: 27%;
+  bottom: -30px;
+  animation-delay: -7s;
+}
+
+.ocean-background .particle:nth-child(3) {
+  width: 5px;
+  height: 5px;
+  left: 42%;
+  bottom: -20px;
+  animation-delay: -4s;
+}
+
+.ocean-background .particle:nth-child(4) {
+  width: 9px;
+  height: 9px;
+  left: 58%;
+  bottom: -25px;
+  animation-delay: -9s;
+}
+
+.ocean-background .particle:nth-child(5) {
+  width: 14px;
+  height: 14px;
+  left: 73%;
+  bottom: -35px;
+  animation-delay: -5s;
+}
+
+.ocean-background .particle:nth-child(6) {
+  width: 6px;
+  height: 6px;
+  left: 87%;
+  bottom: -20px;
+  animation-delay: -11s;
+}
+
+/* =========================================================
+   BUBBLE RISING MOTION
+   ========================================================= */
+
+@keyframes bubbleRise {
+  0% {
+    transform: translate3d(0, 20px, 0) scale(0.8);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.45;
+  }
+
+  45% {
+    opacity: 0.65;
+  }
+
+  75% {
+    opacity: 0.4;
+  }
+
+  100% {
+    transform: translate3d(15px, -110vh, 0) scale(1.15);
+    opacity: 0;
+  }
+}
+
+/* Natural underwater side-to-side movement */
+
+@keyframes bubbleSway {
+  0% {
+    margin-left: 0;
+  }
+
+  25% {
+    margin-left: 12px;
+  }
+
+  50% {
+    margin-left: -8px;
+  }
+
+  75% {
+    margin-left: 15px;
+  }
+
+  100% {
+    margin-left: 0;
+  }
+}
+
+/* =========================================================
+   VERY SMALL SUSPENDED PARTICLES
+   ========================================================= */
+
+.ocean-background::marker {
+  display: none;
+}
+
+/* Fine underwater dust */
+
+.ocean-background {
+  --water-particle: rgba(220, 250, 255, 0.3);
+}
+
+/* Additional depth haze */
+
+.ocean-background .particle {
+  will-change: transform, opacity;
+}
+
+/* Respect reduced-motion accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .ocean-background .particle,
+  .ocean-background .glow {
+    animation: none;
+  }
+}
+/* =========================================================
+   TEMPHOLIO OCEAN — STEP 3
+   VISIBLE REALISTIC FISH
+   ========================================================= */
+
+.ocean-background .fish {
+  position: absolute;
+  z-index: 10;
+
+  width: 110px;
+  height: 55px;
+
+  pointer-events: none;
+
+  opacity: 0.55;
+
+  animation: fishSwim 18s linear infinite;
+}
+
+/* Fish body */
+
+.ocean-background .fish-body {
+  position: absolute;
+  left: 25px;
+  top: 12px;
+
+  width: 68px;
+  height: 34px;
+
+  border-radius: 55% 48% 48% 55%;
+
+  background: linear-gradient(
+    180deg,
+    rgba(210, 245, 255, 0.75),
+    rgba(35, 125, 165, 0.85)
+  );
+
+  box-shadow:
+    inset -10px -7px 12px rgba(0, 35, 55, 0.35),
+    inset 8px 5px 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Tail */
+
+.ocean-background .fish-tail {
+  position: absolute;
+
+  left: 4px;
+  top: 11px;
+
+  width: 0;
+  height: 0;
+
+  border-top: 18px solid transparent;
+  border-bottom: 18px solid transparent;
+  border-right: 27px solid rgba(145, 220, 245, 0.72);
+}
+
+/* Top fin */
+
+.ocean-background .fish-fin {
+  position: absolute;
+
+  left: 48px;
+  top: 4px;
+
+  width: 25px;
+  height: 16px;
+
+  background: rgba(170, 230, 248, 0.55);
+
+  clip-path: polygon(
+    0 100%,
+    45% 0,
+    100% 100%
+  );
+}
+
+/* Eye */
+
+.ocean-background .fish-body::after {
+  content: "";
+
+  position: absolute;
+
+  right: 9px;
+  top: 11px;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: white;
+
+  box-shadow:
+    0 0 7px rgba(255, 255, 255, 0.9);
+}
+
+/* =========================================================
+   FISH LOCATIONS
+   ========================================================= */
+
+.ocean-background .fish-one {
+  top: 25%;
+  left: -130px;
+
+  animation-delay: -2s;
+}
+
+.ocean-background .fish-two {
+  top: 42%;
+  left: -180px;
+
+  transform: scale(0.65);
+
+  opacity: 0.42;
+
+  animation-duration: 24s;
+  animation-delay: -8s;
+}
+
+.ocean-background .fish-three {
+  top: 60%;
+  left: -160px;
+
+  transform: scale(0.85);
+
+  opacity: 0.38;
+
+  animation-duration: 29s;
+  animation-delay: -14s;
+}
+
+.ocean-background .fish-four {
+  top: 34%;
+  left: -200px;
+
+  transform: scale(0.5);
+
+  opacity: 0.32;
+
+  animation-duration: 21s;
+  animation-delay: -5s;
+}
+
+/* =========================================================
+   SWIMMING
+   ========================================================= */
+
+@keyframes fishSwim {
+  0% {
+    margin-left: 0;
+    transform: translateY(0);
+  }
+
+  25% {
+    transform: translateY(-12px);
+  }
+
+  50% {
+    transform: translateY(8px);
+  }
+
+  75% {
+    transform: translateY(-8px);
+  }
+
+  100% {
+    margin-left: calc(100vw + 300px);
+    transform: translateY(5px);
+  }
+}
+
+/* Keep fish above atmosphere layers */
+
+.ocean-background .fish {
+  isolation: isolate;
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .ocean-background .fish {
+    opacity: 0.28;
+  }
+}
