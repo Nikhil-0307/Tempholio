@@ -3,22 +3,516 @@ import "./App.css";
 function TemplatePreview({ template, showOverlay = true, selectedTemplate, setSelectedTemplate }) {
   return (
     <div className={`template-preview preview-${template.id}`}>
-      {/* YOUR 25 TEMPLATE PREVIEWS WILL GO HERE */}
 
-      {showOverlay && (
-        <div className="preview-overlay">
-          <button
-            type="button"
-            onClick={() => setSelectedTemplate(template.id)}
-          >
-            {selectedTemplate === template.id
-              ? "Selected ✓"
-              : "Preview Template"}
-          </button>
-        </div>
-      )}
-    </div>
-  );
+      {template.id === 1 && (
+                    <div className="design-preview design-nova">
+                      <div className="nova-top">
+                        <span>N</span>
+                        <div>
+                            <i></i>
+                            <i></i>
+                            <i></i>
+                          </div>
+                        </div>
+
+                        <div className="nova-content">
+                          <small>HELLO, I'M</small>
+                          <h4>NIKHIL K</h4>
+                          <p>Full Stack Developer</p>
+                          <div className="nova-line"></div>
+                        </div>
+
+                        <div className="nova-bottom">
+                          <span>ABOUT</span>
+                          <span>WORK</span>
+                          <span>CONTACT</span>
+                        </div>
+                      </div>
+                    )}
+
+                    {template.id === 2 && (
+                      <div className="design-preview design-aura">
+                        <div className="aura-frame">
+                          <span className="aura-label">PERSONAL BRAND</span>
+                          <h4>Nikhil<br />K.</h4>
+                          <p>Developer · Creator · Explorer</p>
+                          <div className="aura-orb"></div>
+                          <span className="aura-scroll">SCROLL ↓</span>
+                        </div>
+                      </div>
+                    )}
+
+                    {template.id === 3 && (
+                      <div className="design-preview design-codex">
+                        <div className="code-terminal">
+                          <div className="terminal-bar">
+                            <span>●</span>
+                            <span>●</span>
+                            <span>●</span>
+                            <b>~/portfolio</b>
+                          </div>
+
+                          <div className="terminal-code">
+                            <span>&lt;<b>developer</b>&gt;</span>
+                            <strong>Nikhil K</strong>
+                            <span>const skills = [</span>
+                            <em>"React", "Node", "SQL"</em>
+                            <span>]</span>
+                            <span>&lt;/<b>developer</b>&gt;</span>
+                          </div>
+
+                          <div className="terminal-status">
+                            <span>● SYSTEM ONLINE</span>
+                            <span>01 / 25</span>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    {template.id === 4 && (
+                      <div className="design-preview design-executive">
+                        <div className="exec-header">
+                          <span>NIKHIL K</span>
+                          <small>EXECUTIVE PROFILE</small>
+                        </div>
+
+                        <div className="exec-body">
+                          <div className="exec-sidebar">
+                            <strong>01</strong>
+                            <span>PROFILE</span>
+                            <span>EXPERIENCE</span>
+                            <span>SKILLS</span>
+                            <span>CONTACT</span>
+                          </div>
+
+                          <div className="exec-main">
+                            <small>BUSINESS PROFESSIONAL</small>
+                            <h4>Building<br />meaningful<br /><i>results.</i></h4>
+
+                            <div className="exec-stats">
+                              <span><b>04</b> PROJECTS</span>
+                              <span><b>06</b> SKILLS</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    {template.id === 5 && (
+                      <div className="design-preview design-canvas">
+                        <div className="canvas-word">CREATE</div>
+                        <div className="canvas-card canvas-card-one">WORK<br /><b>01</b></div>
+                        <div className="canvas-card canvas-card-two">IDEAS</div>
+                        <div className="canvas-circle"></div>
+                        <div className="canvas-name">NIKHIL K</div>
+                        <div className="canvas-footer">DESIGN · STORY · EXPERIENCE</div>
+                      </div>
+                    )}
+
+                    {template.id === 6 && (
+                      <div className="design-preview design-pulse">
+                        <div className="pulse-label">PULSE / 06</div>
+                        <h4>MAKE<br /><span>IMPACT.</span></h4>
+
+                        <div className="pulse-boxes">
+                          <div>SALES</div>
+                          <div>GROWTH</div>
+                          <div>BRAND</div>
+                        </div>
+
+                        <div className="pulse-arrow">↗</div>
+                      </div>
+                    )}
+
+                    {template.id === 7 && (
+                      <div className="design-preview design-softcore">
+                        <div className="soft-profile">
+                          <div className="soft-avatar"></div>
+                          <div>
+                            <strong>NIKHIL K</strong>
+                            <span>Developer</span>
+                          </div>
+                        </div>
+
+                        <div className="soft-actions">
+                          <div>ABOUT</div>
+                          <div>SKILLS</div>
+                          <div>WORK</div>
+                        </div>
+
+                        <div className="soft-main">
+                          <span>WELCOME</span>
+                          <h4>Build softly.<br />Think boldly.</h4>
+                        </div>
+                      </div>
+                    )}
+
+                    {template.id === 8 && (
+                      <div className="design-preview design-craft">
+                        <div className="craft-desk">
+                          <div className="craft-paper">
+                            <span className="paper-pin">●</span>
+                            <small>MY PORTFOLIO</small>
+                            <h4>NIKHIL<br />K</h4>
+                            <p>Developer & Creator</p>
+
+                            <div className="craft-stamp">WORK<br />WITH ME</div>
+                          </div>
+
+                          <div className="craft-button">VIEW WORK →</div>
+                        </div>
+                      </div>
+                    )}
+
+                    {template.id === 9 && (
+                      <div className="design-preview design-mono">
+                        <div className="mono-number">09</div>
+                        <div className="mono-title">
+                          <small>PORTFOLIO / 2026</small>
+                          <h4>NIKHIL<br />K</h4>
+                          <p>Developer / Builder / Learner</p>
+                        </div>
+
+                        <div className="mono-nav">
+                          <span>01 ABOUT</span>
+                          <span>02 WORK</span>
+                          <span>03 CONTACT</span>
+                        </div>
+                      </div>
+                    )}
+
+                    {template.id === 10 && (
+                      <div className="design-preview design-vision">
+                        <div className="vision-image">
+                          <span>SELECTED<br />WORK</span>
+                        </div>
+
+                        <div className="vision-title">
+                          <small>CREATIVE PORTFOLIO</small>
+                          <h4>Visual<br /><i>Stories.</i></h4>
+                        </div>
+
+                        <div className="vision-meta">
+                          <span>NIKHIL K</span>
+                          <span>2026</span>
+                        </div>
+                      </div>
+                    )}
+
+                    {template.id === 11 && (
+                      <div className="design-preview design-ascend">
+                        <div className="ascend-grid"></div>
+
+                        <div className="ascend-top">
+                          <span>AK</span>
+                          <small>PORTFOLIO / 2026</small>
+                        </div>
+
+                        <div className="ascend-main">
+                          <small>01 — PROFILE</small>
+                          <h4>Moving<br />forward.</h4>
+                          <p>Technology · Business · Growth</p>
+                        </div>
+
+                        <div className="ascend-side">SCROLL ↓</div>
+                      </div>
+                    )}
+
+                    {template.id === 12 && (
+                      <div className="design-preview design-launch">
+                        <div className="launch-top">
+                          <strong>LAUNCH</strong>
+                          <span>12 / 25</span>
+                        </div>
+
+                        <h4>
+                          START<br />
+                          <span>SOMETHING.</span>
+                        </h4>
+
+                        <div className="launch-sticker">FRESH<br />TALENT</div>
+
+                        <div className="launch-bottom">
+                          <span>NIKHIL K</span>
+                          <span>OPEN TO WORK ↗</span>
+                        </div>
+                      </div>
+                    )}
+
+                    {template.id === 13 && (
+                      <div className="design-preview design-business">
+                        <div className="business-nav">
+                          <strong>NK</strong>
+                          <span>ABOUT</span>
+                          <span>EXPERIENCE</span>
+                          <span>CONTACT</span>
+                        </div>
+
+                        <div className="business-hero">
+                          <small>BUSINESS PORTFOLIO</small>
+                          <h4>Strategy.<br />Execution.<br /><span>Growth.</span></h4>
+                        </div>
+
+                        <div className="business-cards">
+                          <div><b>01</b><span>EXPERIENCE</span></div>
+                          <div><b>02</b><span>PROJECTS</span></div>
+                          <div><b>03</b><span>RESULTS</span></div>
+                        </div>
+                      </div>
+                    )}
+
+                    {template.id === 14 && (
+                      <div className="design-preview design-freelance">
+                        <div className="freelance-intro">
+                          <span>AVAILABLE FOR WORK</span>
+                          <h4>I turn ideas<br /><i>into reality.</i></h4>
+                          <p>Web · Design · Strategy</p>
+                        </div>
+
+                        <div className="freelance-bento">
+                          <div>WEB<br /><b>01</b></div>
+                          <div>DESIGN<br /><b>02</b></div>
+                          <div>BRAND<br /><b>03</b></div>
+                          <div>CONTACT ↗</div>
+                        </div>
+                      </div>
+                    )}
+
+                    {template.id === 15 && (
+                      <div className="design-preview design-timeline">
+                        <div className="timeline-line"></div>
+
+                        <div className="timeline-header">
+                          <small>MY JOURNEY</small>
+                          <h4>Growing<br />through time.</h4>
+                        </div>
+
+                        <div className="timeline-item item-one">
+                          <b>2024</b>
+                          <span>Education</span>
+                        </div>
+
+                        <div className="timeline-item item-two">
+                          <b>2025</b>
+                          <span>Internship</span>
+                        </div>
+
+                        <div className="timeline-item item-three">
+                          <b>2026</b>
+                          <span>Career</span>
+                        </div>
+                      </div>
+                    )}
+
+                    {template.id === 16 && (
+                      <div className="design-preview design-spectrum">
+                        <div className="spectrum-orb orb-one"></div>
+                        <div className="spectrum-orb orb-two"></div>
+
+                        <div className="glass-panel">
+                          <small>HELLO, I'M</small>
+                          <h4>Nikhil K</h4>
+                          <p>Creative Developer</p>
+
+                          <div className="glass-links">
+                            <span>ABOUT</span>
+                            <span>WORK</span>
+                            <span>CONTACT</span>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    {template.id === 17 && (
+                      <div className="design-preview design-grid">
+                        <div className="grid-cell grid-large">
+                          <small>HELLO</small>
+                          <h4>NIKHIL<br />K.</h4>
+                        </div>
+
+                        <div className="grid-cell grid-skills">
+                          <small>SKILLS</small>
+                          <strong>06</strong>
+                        </div>
+
+                        <div className="grid-cell grid-projects">
+                          <small>PROJECTS</small>
+                          <strong>03</strong>
+                        </div>
+
+                        <div className="grid-cell grid-about">ABOUT →</div>
+
+                        <div className="grid-cell grid-contact">CONTACT ↗</div>
+                      </div>
+                    )}
+
+                    {template.id === 18 && (
+                      <div className="design-preview design-focus">
+                        <div className="focus-left">
+                          <small>FOCUS / 2026</small>
+                          <h4>Less.<br />But<br /><i>better.</i></h4>
+                        </div>
+
+                        <div className="focus-right">
+                          <span>ABOUT</span>
+                          <span>WORK</span>
+                          <span>WRITING</span>
+                          <span>CONTACT</span>
+                        </div>
+
+                        <div className="focus-footer">
+                          <span>NIKHIL K</span>
+                          <span>SCROLL ↓</span>
+                        </div>
+                      </div>
+                    )}
+
+                    {template.id === 19 && (
+                      <div className="design-preview design-impact">
+                        <div className="impact-bg">IMPACT</div>
+
+                        <div className="impact-content">
+                          <small>RESULTS / 19</small>
+                          <h4>BUILT<br /><span>TO MOVE.</span></h4>
+
+                          <div className="impact-stat">
+                            <strong>04</strong>
+                            <span>KEY PROJECTS</span>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    {template.id === 20 && (
+                      <div className="design-preview design-orbit">
+                        <div className="orbit-grid"></div>
+
+                        <div className="orbit-ring ring-one"></div>
+                        <div className="orbit-ring ring-two"></div>
+                        <div className="orbit-core">NK</div>
+
+                        <div className="orbit-name">
+                          <small>SYSTEM / 20</small>
+                          <strong>NIKHIL K</strong>
+                          <span>TECH CREATOR</span>
+                        </div>
+
+                        <div className="orbit-status">● ONLINE</div>
+                      </div>
+                    )}
+
+                    {template.id === 21 && (
+                      <div className="design-preview design-techflow">
+                        <div className="techflow-glass">
+                          <div className="techflow-top">
+                            <span>TECHFLOW</span>
+                            <small>21 / 25</small>
+                          </div>
+
+                          <div className="techflow-main">
+                            <small>FULL STACK</small>
+                            <h4>Build.<br />Ship.<br />Repeat.</h4>
+                          </div>
+
+                          <div className="techflow-pills">
+                            <span>REACT</span>
+                            <span>NODE</span>
+                            <span>SQL</span>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    {template.id === 22 && (
+                      <div className="design-preview design-profile">
+                        <div className="profile-top">
+                          <strong>NIKHIL K</strong>
+                          <span>PROFILE</span>
+                        </div>
+
+                        <div className="profile-body">
+                          <div className="profile-avatar"></div>
+
+                          <div>
+                            <small>ASPIRING</small>
+                            <h4>FULL STACK<br />DEVELOPER</h4>
+                            <p>Building digital experiences with technology.</p>
+                          </div>
+                        </div>
+
+                        <div className="profile-links">
+                          <span>ABOUT</span>
+                          <span>EXPERIENCE</span>
+                          <span>CONTACT</span>
+                        </div>
+                      </div>
+                    )}
+
+                    {template.id === 23 && (
+                      <div className="design-preview design-signature">
+                  <div className="signature-border">
+                    <small>THE SIGNATURE COLLECTION</small>
+
+                    <div className="signature-name">
+                      <span>Nikhil</span>
+                      <strong>K.</strong>
+                    </div>
+
+                    <p>PERSONAL BRAND · 2026</p>
+
+                    <div className="signature-line"></div>
+                    <span className="signature-enter">ENTER PORTFOLIO →</span>
+                  </div>
+                </div>
+              )}
+
+              {template.id === 24 && (
+                <div className="design-preview design-horizon">
+                  <div className="horizon-wave wave-one"></div>
+                  <div className="horizon-wave wave-two"></div>
+
+                  <div className="horizon-content">
+                    <small>WELCOME TO MY WORLD</small>
+                    <h4>Flow with<br /><i>the journey.</i></h4>
+                    <p>NIKHIL K · CREATIVE PROFESSIONAL</p>
+                  </div>
+                </div>
+              )}
+
+              {template.id === 25 && (
+                <div className="design-preview design-clay">
+                  <div className="clay-profile">
+                    <div className="clay-avatar">NK</div>
+                    <small>HELLO, I'M</small>
+                    <h4>Nikhil K</h4>
+                    <span>Creative Developer</span>
+                  </div>
+
+                  <div className="clay-menu">
+                    <div>ABOUT</div>
+                    <div>WORK</div>
+                    <div>SKILLS</div>
+                  </div>
+
+                  <div className="clay-button">LET'S CONNECT →</div>
+                </div>
+              )}
+
+                    {showOverlay && (
+                      <div className="preview-overlay">
+                        <button
+                          type="button"
+                        
+                          onClick={() => setSelectedTemplate(template.id)}
+                        >
+                          {selectedTemplate === template.id
+                            ? "Selected ✓"
+                            : "Preview Template"}
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                );
 }
 function App() {
   const [isSignup, setIsSignup] = useState(false);
@@ -33,6 +527,31 @@ function App() {
   const [selectedTemplate, setSelectedTemplate] = useState(null);
   const [templateSearch, setTemplateSearch] = useState("");
   const [templateCategory, setTemplateCategory] = useState("All");
+  const [showPortfolioForm, setShowPortfolioForm] = useState(false);
+  const [portfolioStep, setPortfolioStep] = useState(1);
+const [portfolioData, setPortfolioData] = useState({
+  fullName: "",
+  professionalTitle: "",
+  about: "",
+  profilePhoto: "",
+  email: "",
+  phone: "",
+  location: "",
+  linkedin: "",
+  github: "",
+  skills: "",
+  projects: [
+  {
+    name: "",
+    description: "",
+    technologies: "",
+    liveLink: "",
+    githubLink: "",
+    image: "",
+    featured: false,
+  },
+],
+});
   const templates = [
   {
     id: 1,
@@ -767,7 +1286,10 @@ const recommendedTemplates = templates.filter((template) => {
 
   const selectedFields = fieldOptions[careerStage] || [];
   const selectedInterests = interestOptions[field] || [];
-
+  const handleUseTemplate = (templateId) => {
+  setSelectedTemplate(templateId);
+  setShowPortfolioForm(true);
+};
   const toggleInterest = (interest) => {
     setInterests((current) => {
       if (current.includes(interest)) {
@@ -820,7 +1342,671 @@ const recommendedTemplates = templates.filter((template) => {
     }
 
     setShowOnboarding(false);
+  }
+    const updatePortfolioData = (field, value) => {
+    setPortfolioData((current) => ({
+      ...current,
+      [field]: value,
+    }));
   };
+  const updateProject = (index, field, value) => {
+  setPortfolioData((current) => ({
+    ...current,
+    projects: current.projects.map((project, projectIndex) =>
+      projectIndex === index
+        ? {
+            ...project,
+            [field]: value,
+          }
+        : project
+    ),
+  }));
+};
+
+const addProject = () => {
+  setPortfolioData((current) => ({
+    ...current,
+    projects: [
+      ...current.projects,
+      {
+        name: "",
+        description: "",
+        technologies: "",
+        liveLink: "",
+        githubLink: "",
+        image: "",
+        featured: false,
+      },
+    ],
+  }));
+};
+
+const removeProject = (index) => {
+  setPortfolioData((current) => ({
+    ...current,
+    projects: current.projects.filter(
+      (_, projectIndex) => projectIndex !== index
+    ),
+  }));
+};
+  if (showPortfolioForm) {
+  return (
+    <div className="portfolio-form-page">
+
+      {/* Ocean atmosphere */}
+      <div className="form-ocean-glow glow-one"></div>
+      <div className="form-ocean-glow glow-two"></div>
+
+      <div className="form-bubbles">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      {/* Header */}
+      <header className="portfolio-form-header">
+        <div className="form-brand">
+          <span className="brand-dot"></span>
+          TEMPHOLIO
+        </div>
+
+        <button
+          type="button"
+          className="form-back-button"
+          onClick={() => setShowPortfolioForm(false)}
+        >
+          ← Back to Templates
+        </button>
+      </header>
+
+      {/* Main content */}
+      <main className="portfolio-form-container">
+
+        <div className="portfolio-form-hero">
+
+          <div className="form-eyebrow">
+            CREATE YOUR PORTFOLIO
+          </div>
+
+          <h1>
+            BUILD YOUR
+            <span> IDENTITY</span>
+          </h1>
+
+          <p>
+            Tell us about yourself and we'll transform your
+            information into a professional portfolio.
+          </p>
+
+          {selectedTemplate && (
+            <div className="selected-template-badge">
+              <span>✦</span>
+              Template {String(selectedTemplate).padStart(2, "0")} selected
+            </div>
+          )}
+
+        </div>
+
+        <form
+          className="portfolio-form"
+          onSubmit={(event) => {
+            event.preventDefault();
+            console.log("Portfolio data:", portfolioData);
+          }}
+        >
+          {portfolioStep === 1 && (
+            <>
+          {/* PERSONAL INFORMATION */}
+          <section className="form-section">
+
+            <div className="form-section-heading">
+              <div className="section-number">01</div>
+
+              <div>
+                <h2>Personal Information</h2>
+                <p>Start with the basics about you.</p>
+              </div>
+            </div>
+
+            <div className="form-fields">
+
+              <div className="form-field">
+                <label>FULL NAME</label>
+
+                <input
+                  type="text"
+                  placeholder="e.g. Nikhil K"
+                  value={portfolioData.fullName}
+                  onChange={(event) =>
+                    updatePortfolioData(
+                      "fullName",
+                      event.target.value
+                    )
+                  }
+                />
+              </div>
+
+              <div className="form-field">
+                <label>PROFESSIONAL TITLE</label>
+
+                <input
+                  type="text"
+                  placeholder="e.g. Aspiring Full Stack Developer"
+                  value={portfolioData.professionalTitle}
+                  onChange={(event) =>
+                    updatePortfolioData(
+                      "professionalTitle",
+                      event.target.value
+                    )
+                  }
+                />
+              </div>
+
+              <div className="form-field full-width">
+                <label>ABOUT YOU</label>
+
+                <textarea
+                  placeholder="Write a short introduction about yourself..."
+                  value={portfolioData.about}
+                  onChange={(event) =>
+                    updatePortfolioData(
+                      "about",
+                      event.target.value
+                    )
+                  }
+                />
+              </div>
+              <div className="form-field full-width">
+  <label>Profile Photo</label>
+
+  <div className="profile-photo-upload">
+    {portfolioData.profilePhoto ? (
+      <div className="profile-photo-preview">
+        <img
+          src={portfolioData.profilePhoto}
+          alt="Profile preview"
+        />
+
+        <button
+          type="button"
+          onClick={() =>
+            updatePortfolioData("profilePhoto", "")
+          }
+        >
+          Remove Photo
+        </button>
+      </div>
+    ) : (
+      <label className="profile-upload-box">
+        <input
+          type="file"
+          accept="image/png,image/jpeg,image/webp"
+          onChange={(event) => {
+            const file = event.target.files?.[0];
+
+            if (!file) return;
+
+            const reader = new FileReader();
+
+            reader.onload = () => {
+              updatePortfolioData(
+                "profilePhoto",
+                reader.result
+              );
+            };
+
+            reader.readAsDataURL(file);
+          }}
+        />
+
+        <span className="upload-icon">＋</span>
+
+        <strong>Upload Profile Photo</strong>
+
+        <small>
+          JPG, PNG or WebP
+        </small>
+      </label>
+    )}
+  </div>
+</div>    
+            </div>
+
+          </section>
+
+
+          {/* CONTACT INFORMATION */}
+          <section className="form-section">
+
+            <div className="form-section-heading">
+              <div className="section-number">02</div>
+
+              <div>
+                <h2>Contact Information</h2>
+                <p>Let people know how they can reach you.</p>
+              </div>
+            </div>
+
+            <div className="form-fields">
+
+              <div className="form-field">
+                <label>EMAIL</label>
+
+                <input
+                  type="email"
+                  placeholder="you@example.com"
+                  value={portfolioData.email}
+                  onChange={(event) =>
+                    updatePortfolioData(
+                      "email",
+                      event.target.value
+                    )
+                  }
+                />
+              </div>
+
+              <div className="form-field">
+                <label>PHONE</label>
+
+                <input
+                  type="text"
+                  placeholder="+91 XXXXX XXXXX"
+                  value={portfolioData.phone}
+                  onChange={(event) =>
+                    updatePortfolioData(
+                      "phone",
+                      event.target.value
+                    )
+                  }
+                />
+              </div>
+
+              <div className="form-field">
+                <label>LOCATION</label>
+
+                <input
+                  type="text"
+                  placeholder="Coimbatore, India"
+                  value={portfolioData.location}
+                  onChange={(event) =>
+                    updatePortfolioData(
+                      "location",
+                      event.target.value
+                    )
+                  }
+                />
+              </div>
+
+              <div className="form-field">
+                <label>LINKEDIN</label>
+
+                <input
+                  type="text"
+                  placeholder="linkedin.com/in/yourname"
+                  value={portfolioData.linkedin}
+                  onChange={(event) =>
+                    updatePortfolioData(
+                      "linkedin",
+                      event.target.value
+                    )
+                  }
+                />
+              </div>
+
+              <div className="form-field full-width">
+                <label>GITHUB</label>
+
+                <input
+                  type="text"
+                  placeholder="github.com/yourusername"
+                  value={portfolioData.github}
+                  onChange={(event) =>
+                    updatePortfolioData(
+                      "github",
+                      event.target.value
+                    )
+                  }
+                />
+              </div>
+
+            </div>
+
+          </section>
+                   
+
+          {/* SKILLS */}
+          <section className="form-section">
+
+            <div className="form-section-heading">
+              <div className="section-number">03</div>
+
+              <div>
+                <h2>Skills</h2>
+                <p>Showcase the skills that define you.</p>
+              </div>
+            </div>
+
+            <div className="form-fields">
+
+              <div className="form-field full-width">
+
+                <label>YOUR SKILLS</label>
+
+                <textarea
+                  className="skills-textarea"
+                  placeholder="e.g. HTML, CSS, JavaScript, React, Python, Excel..."
+                  value={portfolioData.skills}
+                  onChange={(event) =>
+                    updatePortfolioData(
+                      "skills",
+                      event.target.value
+                    )
+                  }
+                />
+
+                <small>
+                  Separate your skills using commas.
+                </small>
+
+              </div>
+
+            </div>
+
+          </section>
+           </>
+          )}        
+
+          
+          {/* STEP 1 ACTION */}
+              {portfolioStep === 1 && (
+                <div className="form-submit-area">
+
+                  <div>
+                    <span>03 / 07</span>
+                    <p>Your portfolio journey starts here.</p>
+                  </div>
+
+                  <button
+                    type="button"
+                    className="continue-projects-button"
+                    onClick={() => setPortfolioStep(2)}
+                  >
+                    Continue to Projects
+                    <strong>→</strong>
+                  </button>
+
+                </div>
+              )}
+              {/* STEP 2 — PROJECTS */}
+{portfolioStep === 2 && (
+  <>
+    <section className="form-section projects-section">
+
+      <div className="form-section-heading">
+
+        <div className="section-number">
+          04
+        </div>
+
+        <div>
+          <h2>Projects</h2>
+          <p>
+            Showcase the work you're proud of.
+          </p>
+        </div>
+
+      </div>
+
+      <div className="projects-list">
+
+        {portfolioData.projects.map((project, index) => (
+
+          <div
+            className="project-card"
+            key={index}
+          >
+
+            <div className="project-card-header">
+
+              <div>
+                <span className="project-number">
+                  PROJECT {String(index + 1).padStart(2, "0")}
+                </span>
+
+                <h3>
+                  {project.name ||
+                    `Project ${index + 1}`}
+                </h3>
+              </div>
+
+              {portfolioData.projects.length > 1 && (
+                <button
+                  type="button"
+                  className="remove-project-button"
+                  onClick={() =>
+                    removeProject(index)
+                  }
+                >
+                  Remove
+                </button>
+              )}
+
+            </div>
+
+
+            <div className="form-fields">
+
+              {/* PROJECT NAME */}
+              <div className="form-field full-width">
+
+                <label>PROJECT NAME</label>
+
+                <input
+                  type="text"
+                  placeholder="e.g. Tempholio"
+                  value={project.name}
+                  onChange={(event) =>
+                    updateProject(
+                      index,
+                      "name",
+                      event.target.value
+                    )
+                  }
+                />
+
+              </div>
+
+
+              {/* DESCRIPTION */}
+              <div className="form-field full-width">
+
+                <label>DESCRIPTION</label>
+
+                <textarea
+                  placeholder="Describe your project, what problem it solves, and what you contributed..."
+                  value={project.description}
+                  onChange={(event) =>
+                    updateProject(
+                      index,
+                      "description",
+                      event.target.value
+                    )
+                  }
+                />
+
+              </div>
+
+
+              {/* TECHNOLOGIES */}
+              <div className="form-field full-width">
+
+                <label>TECHNOLOGIES USED</label>
+
+                <input
+                  type="text"
+                  placeholder="React, JavaScript, CSS, Node.js..."
+                  value={project.technologies}
+                  onChange={(event) =>
+                    updateProject(
+                      index,
+                      "technologies",
+                      event.target.value
+                    )
+                  }
+                />
+
+                <small>
+                  Separate technologies using commas.
+                </small>
+
+              </div>
+
+
+              {/* LIVE LINK */}
+              <div className="form-field">
+
+                <label>LIVE PROJECT LINK</label>
+
+                <input
+                  type="url"
+                  placeholder="https://yourproject.com"
+                  value={project.liveLink}
+                  onChange={(event) =>
+                    updateProject(
+                      index,
+                      "liveLink",
+                      event.target.value
+                    )
+                  }
+                />
+
+              </div>
+
+
+              {/* GITHUB */}
+              <div className="form-field">
+
+                <label>GITHUB REPOSITORY</label>
+
+                <input
+                  type="url"
+                  placeholder="https://github.com/username/project"
+                  value={project.githubLink}
+                  onChange={(event) =>
+                    updateProject(
+                      index,
+                      "githubLink",
+                      event.target.value
+                    )
+                  }
+                />
+
+              </div>
+
+
+              {/* FEATURED */}
+              <div className="project-featured">
+
+                <label className="featured-checkbox">
+
+                  <input
+                    type="checkbox"
+                    checked={project.featured}
+                    onChange={(event) =>
+                      updateProject(
+                        index,
+                        "featured",
+                        event.target.checked
+                      )
+                    }
+                  />
+
+                  <span></span>
+
+                  <div>
+                    <strong>
+                      Featured Project
+                    </strong>
+
+                    <small>
+                      Highlight this project in your portfolio.
+                    </small>
+                  </div>
+
+                </label>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        ))}
+
+      </div>
+
+
+      {/* ADD PROJECT */}
+      <button
+        type="button"
+        className="add-project-button"
+        onClick={addProject}
+      >
+        <span>＋</span>
+        Add Another Project
+      </button>
+
+    </section>
+
+
+    {/* PROJECT ACTIONS */}
+    <div className="form-submit-area">
+
+      <div>
+        <span>04 / 07</span>
+        <p>
+          Add the projects that represent your work.
+        </p>
+      </div>
+
+      <div className="project-navigation">
+
+        <button
+          type="button"
+          className="form-back-button"
+          onClick={() => setPortfolioStep(1)}
+        >
+          ← Back
+        </button>
+
+        <button
+          type="button"
+          className="continue-projects-button"
+          onClick={() =>
+            console.log("Projects:", portfolioData.projects)
+          }
+        >
+          Continue to Education
+          <strong>→</strong>
+        </button>
+
+      </div>
+
+    </div>
+
+  </>
+)}
+        </form>
+
+      </main>
+
+    </div>
+  );
+}
+
   if (onboardingComplete) {
     return (
       <div className="app template-gallery-page">
@@ -974,17 +2160,10 @@ const recommendedTemplates = templates.filter((template) => {
           }`}
           key={`recommended-${template.id}`}
         >
-          <div
-            className={`template-preview preview-${template.id}`}
-          >
-            {/* We'll connect the existing preview designs here next */}
-            <div className="recommended-preview-placeholder">
-              <span>✦</span>
-              <strong>{template.name}</strong>
-              <small>{template.designSystem}</small>
-            </div>
-          </div>
-
+          <TemplatePreview
+            template={template}
+            showOverlay={false}
+          />
           <div className="template-info">
             <div className="template-title-row">
               <div>
@@ -1019,9 +2198,8 @@ const recommendedTemplates = templates.filter((template) => {
               <button
                 type="button"
                 className="use-template-button"
-                onClick={() =>
-                  setSelectedTemplate(template.id)
-                }
+                onClick={() => handleUseTemplate(template.id)}
+                
               >
                 Use Template
                 <strong>→</strong>
@@ -1046,505 +2224,17 @@ const recommendedTemplates = templates.filter((template) => {
                 }`}
                 key={template.id}
               >
-
+              <TemplatePreview
+                template={template}
+                selectedTemplate={selectedTemplate}
+                setSelectedTemplate={setSelectedTemplate}
+              />
                 {/* =====================================================
                       TEMPLATE PREVIEW SYSTEM
                       Each design gets its own visual language
                     ===================================================== */}
 
-                  {template.id === 1 && (
-                    <div className="design-preview design-nova">
-                      <div className="nova-top">
-                        <span>N</span>
-                        <div>
-                            <i></i>
-                            <i></i>
-                            <i></i>
-                          </div>
-                        </div>
-
-                        <div className="nova-content">
-                          <small>HELLO, I'M</small>
-                          <h4>NIKHIL K</h4>
-                          <p>Full Stack Developer</p>
-                          <div className="nova-line"></div>
-                        </div>
-
-                        <div className="nova-bottom">
-                          <span>ABOUT</span>
-                          <span>WORK</span>
-                          <span>CONTACT</span>
-                        </div>
-                      </div>
-                    )}
-
-                    {template.id === 2 && (
-                      <div className="design-preview design-aura">
-                        <div className="aura-frame">
-                          <span className="aura-label">PERSONAL BRAND</span>
-                          <h4>Nikhil<br />K.</h4>
-                          <p>Developer · Creator · Explorer</p>
-                          <div className="aura-orb"></div>
-                          <span className="aura-scroll">SCROLL ↓</span>
-                        </div>
-                      </div>
-                    )}
-
-                    {template.id === 3 && (
-                      <div className="design-preview design-codex">
-                        <div className="code-terminal">
-                          <div className="terminal-bar">
-                            <span>●</span>
-                            <span>●</span>
-                            <span>●</span>
-                            <b>~/portfolio</b>
-                          </div>
-
-                          <div className="terminal-code">
-                            <span>&lt;<b>developer</b>&gt;</span>
-                            <strong>Nikhil K</strong>
-                            <span>const skills = [</span>
-                            <em>"React", "Node", "SQL"</em>
-                            <span>]</span>
-                            <span>&lt;/<b>developer</b>&gt;</span>
-                          </div>
-
-                          <div className="terminal-status">
-                            <span>● SYSTEM ONLINE</span>
-                            <span>01 / 25</span>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-
-                    {template.id === 4 && (
-                      <div className="design-preview design-executive">
-                        <div className="exec-header">
-                          <span>NIKHIL K</span>
-                          <small>EXECUTIVE PROFILE</small>
-                        </div>
-
-                        <div className="exec-body">
-                          <div className="exec-sidebar">
-                            <strong>01</strong>
-                            <span>PROFILE</span>
-                            <span>EXPERIENCE</span>
-                            <span>SKILLS</span>
-                            <span>CONTACT</span>
-                          </div>
-
-                          <div className="exec-main">
-                            <small>BUSINESS PROFESSIONAL</small>
-                            <h4>Building<br />meaningful<br /><i>results.</i></h4>
-
-                            <div className="exec-stats">
-                              <span><b>04</b> PROJECTS</span>
-                              <span><b>06</b> SKILLS</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-
-                    {template.id === 5 && (
-                      <div className="design-preview design-canvas">
-                        <div className="canvas-word">CREATE</div>
-                        <div className="canvas-card canvas-card-one">WORK<br /><b>01</b></div>
-                        <div className="canvas-card canvas-card-two">IDEAS</div>
-                        <div className="canvas-circle"></div>
-                        <div className="canvas-name">NIKHIL K</div>
-                        <div className="canvas-footer">DESIGN · STORY · EXPERIENCE</div>
-                      </div>
-                    )}
-
-                    {template.id === 6 && (
-                      <div className="design-preview design-pulse">
-                        <div className="pulse-label">PULSE / 06</div>
-                        <h4>MAKE<br /><span>IMPACT.</span></h4>
-
-                        <div className="pulse-boxes">
-                          <div>SALES</div>
-                          <div>GROWTH</div>
-                          <div>BRAND</div>
-                        </div>
-
-                        <div className="pulse-arrow">↗</div>
-                      </div>
-                    )}
-
-                    {template.id === 7 && (
-                      <div className="design-preview design-softcore">
-                        <div className="soft-profile">
-                          <div className="soft-avatar"></div>
-                          <div>
-                            <strong>NIKHIL K</strong>
-                            <span>Developer</span>
-                          </div>
-                        </div>
-
-                        <div className="soft-actions">
-                          <div>ABOUT</div>
-                          <div>SKILLS</div>
-                          <div>WORK</div>
-                        </div>
-
-                        <div className="soft-main">
-                          <span>WELCOME</span>
-                          <h4>Build softly.<br />Think boldly.</h4>
-                        </div>
-                      </div>
-                    )}
-
-                    {template.id === 8 && (
-                      <div className="design-preview design-craft">
-                        <div className="craft-desk">
-                          <div className="craft-paper">
-                            <span className="paper-pin">●</span>
-                            <small>MY PORTFOLIO</small>
-                            <h4>NIKHIL<br />K</h4>
-                            <p>Developer & Creator</p>
-
-                            <div className="craft-stamp">WORK<br />WITH ME</div>
-                          </div>
-
-                          <div className="craft-button">VIEW WORK →</div>
-                        </div>
-                      </div>
-                    )}
-
-                    {template.id === 9 && (
-                      <div className="design-preview design-mono">
-                        <div className="mono-number">09</div>
-                        <div className="mono-title">
-                          <small>PORTFOLIO / 2026</small>
-                          <h4>NIKHIL<br />K</h4>
-                          <p>Developer / Builder / Learner</p>
-                        </div>
-
-                        <div className="mono-nav">
-                          <span>01 ABOUT</span>
-                          <span>02 WORK</span>
-                          <span>03 CONTACT</span>
-                        </div>
-                      </div>
-                    )}
-
-                    {template.id === 10 && (
-                      <div className="design-preview design-vision">
-                        <div className="vision-image">
-                          <span>SELECTED<br />WORK</span>
-                        </div>
-
-                        <div className="vision-title">
-                          <small>CREATIVE PORTFOLIO</small>
-                          <h4>Visual<br /><i>Stories.</i></h4>
-                        </div>
-
-                        <div className="vision-meta">
-                          <span>NIKHIL K</span>
-                          <span>2026</span>
-                        </div>
-                      </div>
-                    )}
-
-                    {template.id === 11 && (
-                      <div className="design-preview design-ascend">
-                        <div className="ascend-grid"></div>
-
-                        <div className="ascend-top">
-                          <span>AK</span>
-                          <small>PORTFOLIO / 2026</small>
-                        </div>
-
-                        <div className="ascend-main">
-                          <small>01 — PROFILE</small>
-                          <h4>Moving<br />forward.</h4>
-                          <p>Technology · Business · Growth</p>
-                        </div>
-
-                        <div className="ascend-side">SCROLL ↓</div>
-                      </div>
-                    )}
-
-                    {template.id === 12 && (
-                      <div className="design-preview design-launch">
-                        <div className="launch-top">
-                          <strong>LAUNCH</strong>
-                          <span>12 / 25</span>
-                        </div>
-
-                        <h4>
-                          START<br />
-                          <span>SOMETHING.</span>
-                        </h4>
-
-                        <div className="launch-sticker">FRESH<br />TALENT</div>
-
-                        <div className="launch-bottom">
-                          <span>NIKHIL K</span>
-                          <span>OPEN TO WORK ↗</span>
-                        </div>
-                      </div>
-                    )}
-
-                    {template.id === 13 && (
-                      <div className="design-preview design-business">
-                        <div className="business-nav">
-                          <strong>NK</strong>
-                          <span>ABOUT</span>
-                          <span>EXPERIENCE</span>
-                          <span>CONTACT</span>
-                        </div>
-
-                        <div className="business-hero">
-                          <small>BUSINESS PORTFOLIO</small>
-                          <h4>Strategy.<br />Execution.<br /><span>Growth.</span></h4>
-                        </div>
-
-                        <div className="business-cards">
-                          <div><b>01</b><span>EXPERIENCE</span></div>
-                          <div><b>02</b><span>PROJECTS</span></div>
-                          <div><b>03</b><span>RESULTS</span></div>
-                        </div>
-                      </div>
-                    )}
-
-                    {template.id === 14 && (
-                      <div className="design-preview design-freelance">
-                        <div className="freelance-intro">
-                          <span>AVAILABLE FOR WORK</span>
-                          <h4>I turn ideas<br /><i>into reality.</i></h4>
-                          <p>Web · Design · Strategy</p>
-                        </div>
-
-                        <div className="freelance-bento">
-                          <div>WEB<br /><b>01</b></div>
-                          <div>DESIGN<br /><b>02</b></div>
-                          <div>BRAND<br /><b>03</b></div>
-                          <div>CONTACT ↗</div>
-                        </div>
-                      </div>
-                    )}
-
-                    {template.id === 15 && (
-                      <div className="design-preview design-timeline">
-                        <div className="timeline-line"></div>
-
-                        <div className="timeline-header">
-                          <small>MY JOURNEY</small>
-                          <h4>Growing<br />through time.</h4>
-                        </div>
-
-                        <div className="timeline-item item-one">
-                          <b>2024</b>
-                          <span>Education</span>
-                        </div>
-
-                        <div className="timeline-item item-two">
-                          <b>2025</b>
-                          <span>Internship</span>
-                        </div>
-
-                        <div className="timeline-item item-three">
-                          <b>2026</b>
-                          <span>Career</span>
-                        </div>
-                      </div>
-                    )}
-
-                    {template.id === 16 && (
-                      <div className="design-preview design-spectrum">
-                        <div className="spectrum-orb orb-one"></div>
-                        <div className="spectrum-orb orb-two"></div>
-
-                        <div className="glass-panel">
-                          <small>HELLO, I'M</small>
-                          <h4>Nikhil K</h4>
-                          <p>Creative Developer</p>
-
-                          <div className="glass-links">
-                            <span>ABOUT</span>
-                            <span>WORK</span>
-                            <span>CONTACT</span>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-
-                    {template.id === 17 && (
-                      <div className="design-preview design-grid">
-                        <div className="grid-cell grid-large">
-                          <small>HELLO</small>
-                          <h4>NIKHIL<br />K.</h4>
-                        </div>
-
-                        <div className="grid-cell grid-skills">
-                          <small>SKILLS</small>
-                          <strong>06</strong>
-                        </div>
-
-                        <div className="grid-cell grid-projects">
-                          <small>PROJECTS</small>
-                          <strong>03</strong>
-                        </div>
-
-                        <div className="grid-cell grid-about">ABOUT →</div>
-
-                        <div className="grid-cell grid-contact">CONTACT ↗</div>
-                      </div>
-                    )}
-
-                    {template.id === 18 && (
-                      <div className="design-preview design-focus">
-                        <div className="focus-left">
-                          <small>FOCUS / 2026</small>
-                          <h4>Less.<br />But<br /><i>better.</i></h4>
-                        </div>
-
-                        <div className="focus-right">
-                          <span>ABOUT</span>
-                          <span>WORK</span>
-                          <span>WRITING</span>
-                          <span>CONTACT</span>
-                        </div>
-
-                        <div className="focus-footer">
-                          <span>NIKHIL K</span>
-                          <span>SCROLL ↓</span>
-                        </div>
-                      </div>
-                    )}
-
-                    {template.id === 19 && (
-                      <div className="design-preview design-impact">
-                        <div className="impact-bg">IMPACT</div>
-
-                        <div className="impact-content">
-                          <small>RESULTS / 19</small>
-                          <h4>BUILT<br /><span>TO MOVE.</span></h4>
-
-                          <div className="impact-stat">
-                            <strong>04</strong>
-                            <span>KEY PROJECTS</span>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-
-                    {template.id === 20 && (
-                      <div className="design-preview design-orbit">
-                        <div className="orbit-grid"></div>
-
-                        <div className="orbit-ring ring-one"></div>
-                        <div className="orbit-ring ring-two"></div>
-                        <div className="orbit-core">NK</div>
-
-                        <div className="orbit-name">
-                          <small>SYSTEM / 20</small>
-                          <strong>NIKHIL K</strong>
-                          <span>TECH CREATOR</span>
-                        </div>
-
-                        <div className="orbit-status">● ONLINE</div>
-                      </div>
-                    )}
-
-                    {template.id === 21 && (
-                      <div className="design-preview design-techflow">
-                        <div className="techflow-glass">
-                          <div className="techflow-top">
-                            <span>TECHFLOW</span>
-                            <small>21 / 25</small>
-                          </div>
-
-                          <div className="techflow-main">
-                            <small>FULL STACK</small>
-                            <h4>Build.<br />Ship.<br />Repeat.</h4>
-                          </div>
-
-                          <div className="techflow-pills">
-                            <span>REACT</span>
-                            <span>NODE</span>
-                            <span>SQL</span>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-
-                    {template.id === 22 && (
-                      <div className="design-preview design-profile">
-                        <div className="profile-top">
-                          <strong>NIKHIL K</strong>
-                          <span>PROFILE</span>
-                        </div>
-
-                        <div className="profile-body">
-                          <div className="profile-avatar"></div>
-
-                          <div>
-                            <small>ASPIRING</small>
-                            <h4>FULL STACK<br />DEVELOPER</h4>
-                            <p>Building digital experiences with technology.</p>
-                          </div>
-                        </div>
-
-                        <div className="profile-links">
-                          <span>ABOUT</span>
-                          <span>EXPERIENCE</span>
-                          <span>CONTACT</span>
-                        </div>
-                      </div>
-                    )}
-
-                    {template.id === 23 && (
-                      <div className="design-preview design-signature">
-    <div className="signature-border">
-      <small>THE SIGNATURE COLLECTION</small>
-
-      <div className="signature-name">
-        <span>Nikhil</span>
-        <strong>K.</strong>
-      </div>
-
-      <p>PERSONAL BRAND · 2026</p>
-
-      <div className="signature-line"></div>
-      <span className="signature-enter">ENTER PORTFOLIO →</span>
-    </div>
-  </div>
-)}
-
-{template.id === 24 && (
-  <div className="design-preview design-horizon">
-    <div className="horizon-wave wave-one"></div>
-    <div className="horizon-wave wave-two"></div>
-
-    <div className="horizon-content">
-      <small>WELCOME TO MY WORLD</small>
-      <h4>Flow with<br /><i>the journey.</i></h4>
-      <p>NIKHIL K · CREATIVE PROFESSIONAL</p>
-    </div>
-  </div>
-)}
-
-{template.id === 25 && (
-  <div className="design-preview design-clay">
-    <div className="clay-profile">
-      <div className="clay-avatar">NK</div>
-      <small>HELLO, I'M</small>
-      <h4>Nikhil K</h4>
-      <span>Creative Developer</span>
-    </div>
-
-    <div className="clay-menu">
-      <div>ABOUT</div>
-      <div>WORK</div>
-      <div>SKILLS</div>
-    </div>
-
-    <div className="clay-button">LET'S CONNECT →</div>
-  </div>
-)}
+                  
 
 <div className="preview-number">
   {String(template.id).padStart(2, "0")}
@@ -1605,7 +2295,8 @@ const recommendedTemplates = templates.filter((template) => {
                       type="button"
                       className="use-template-button"
                       onClick={() =>
-                        setSelectedTemplate(template.id)
+                        handleUseTemplate(template.id) 
+                        
                       }
                     >
                       Use Template
