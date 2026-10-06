@@ -5890,3 +5890,1207 @@ button {
     width: 100%;
   }
 }
+/* =========================================
+   TEMPHOLIO — LIVE PORTFOLIO PREVIEW
+   ========================================= */
+
+.live-preview-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at 15% 10%,
+      rgba(78, 207, 226, 0.12),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 25%,
+      rgba(41, 157, 190, 0.1),
+      transparent 28%
+    ),
+    linear-gradient(
+      145deg,
+      #021119 0%,
+      #041c28 48%,
+      #02141e 100%
+    );
+  color: #eaffff;
+  position: relative;
+  overflow-x: hidden;
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.live-preview-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  min-height: 72px;
+  padding: 0 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  background: rgba(2, 17, 25, 0.78);
+  border-bottom: 1px solid rgba(120, 231, 245, 0.1);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.preview-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.preview-back-button,
+.publish-preview-button {
+  border-radius: 12px;
+  padding: 11px 17px;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.preview-back-button {
+  border: 1px solid rgba(120, 231, 245, 0.16);
+  background: rgba(120, 231, 245, 0.035);
+  color: rgba(225, 250, 255, 0.7);
+}
+
+.preview-back-button:hover {
+  border-color: rgba(120, 231, 245, 0.4);
+  color: #eaffff;
+  transform: translateY(-2px);
+}
+
+.publish-preview-button {
+  border: 1px solid rgba(120, 231, 245, 0.45);
+  background: linear-gradient(
+    135deg,
+    rgba(120, 231, 245, 0.2),
+    rgba(66, 181, 205, 0.08)
+  );
+  color: #8debf5;
+  box-shadow: 0 8px 25px rgba(58, 190, 215, 0.08);
+}
+
+.publish-preview-button strong {
+  margin-left: 8px;
+}
+
+.publish-preview-button:hover {
+  transform: translateY(-2px);
+  border-color: rgba(120, 231, 245, 0.75);
+  box-shadow: 0 12px 30px rgba(58, 190, 215, 0.14);
+}
+
+
+/* =========================================
+   PREVIEW CONTAINER
+   ========================================= */
+
+.live-preview-container {
+  width: min(1120px, 90%);
+  margin: 0 auto;
+  padding: 70px 0 100px;
+}
+
+
+/* =========================================
+   HERO
+   ========================================= */
+
+.preview-hero {
+  min-height: 520px;
+  padding: 70px 8%;
+  border-radius: 32px;
+  border: 1px solid rgba(120, 231, 245, 0.12);
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(120, 231, 245, 0.12),
+      transparent 45%
+    ),
+    rgba(3, 24, 34, 0.65);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 30px 80px rgba(0, 0, 0, 0.2);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.preview-hero::before {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: rgba(77, 210, 230, 0.06);
+  filter: blur(80px);
+  top: -230px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.preview-profile-photo,
+.preview-profile-placeholder {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 2;
+}
+
+.preview-profile-photo {
+  object-fit: cover;
+  border: 2px solid rgba(120, 231, 245, 0.45);
+  box-shadow:
+    0 0 0 8px rgba(120, 231, 245, 0.035),
+    0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.preview-profile-placeholder {
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(120, 231, 245, 0.3);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(120, 231, 245, 0.18),
+      rgba(24, 97, 118, 0.12)
+    );
+
+  color: #8debf5;
+  font-size: 48px;
+  font-weight: 900;
+}
+
+.preview-eyebrow {
+  color: #78e7f5;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.preview-hero h1 {
+  margin: 0;
+  max-width: 850px;
+  color: #f2ffff;
+  font-size: clamp(42px, 7vw, 82px);
+  line-height: 0.98;
+  letter-spacing: -3px;
+}
+
+.preview-hero > p {
+  max-width: 720px;
+  margin: 25px auto 0;
+  color: rgba(220, 247, 252, 0.55);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.preview-contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.preview-contact-links a {
+  text-decoration: none;
+  color: #9deef6;
+  padding: 10px 16px;
+  border: 1px solid rgba(120, 231, 245, 0.14);
+  border-radius: 999px;
+  background: rgba(120, 231, 245, 0.045);
+  font-size: 12px;
+  font-weight: 800;
+  transition: 0.25s ease;
+}
+
+.preview-contact-links a:hover {
+  background: rgba(120, 231, 245, 0.1);
+  border-color: rgba(120, 231, 245, 0.35);
+  transform: translateY(-2px);
+}
+
+
+/* =========================================
+   SECTIONS
+   ========================================= */
+
+.preview-section {
+  margin-top: 28px;
+  padding: 42px;
+  border-radius: 26px;
+  border: 1px solid rgba(120, 231, 245, 0.09);
+  background: rgba(3, 24, 34, 0.48);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.025),
+    0 18px 55px rgba(0, 0, 0, 0.12);
+}
+
+.preview-section-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.preview-section-heading span {
+  color: #78e7f5;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.preview-section-heading h2 {
+  margin: 0;
+  color: #effdff;
+  font-size: clamp(24px, 4vw, 36px);
+  letter-spacing: -1px;
+}
+
+
+/* =========================================
+   SKILLS
+   ========================================= */
+
+.preview-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.preview-skills span {
+  padding: 11px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(120, 231, 245, 0.14);
+  background: rgba(120, 231, 245, 0.045);
+  color: rgba(232, 253, 255, 0.78);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+
+/* =========================================
+   PROJECTS
+   ========================================= */
+
+.preview-project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.preview-project-card {
+  position: relative;
+  padding: 27px;
+  border-radius: 20px;
+  border: 1px solid rgba(120, 231, 245, 0.09);
+  background: rgba(2, 17, 25, 0.42);
+  transition: 0.3s ease;
+}
+
+.preview-project-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(120, 231, 245, 0.25);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+}
+
+.preview-project-card.featured-project {
+  border-color: rgba(120, 231, 245, 0.3);
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(120, 231, 245, 0.08),
+      transparent 45%
+    ),
+    rgba(2, 17, 25, 0.5);
+}
+
+.preview-featured-badge {
+  display: inline-block;
+  margin-bottom: 15px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: rgba(120, 231, 245, 0.1);
+  color: #8debf5;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+}
+
+.preview-project-card h3,
+.preview-timeline-card h3,
+.preview-certification-card h3,
+.preview-achievement-card h3 {
+  margin: 0;
+  color: #eaffff;
+  font-size: 20px;
+}
+
+.preview-project-card p,
+.preview-timeline-card p,
+.preview-certification-card p,
+.preview-achievement-card p {
+  margin: 13px 0 0;
+  color: rgba(220, 247, 252, 0.48);
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.preview-tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 20px;
+}
+
+.preview-tech-list span {
+  padding: 6px 9px;
+  border-radius: 7px;
+  background: rgba(120, 231, 245, 0.06);
+  color: rgba(157, 238, 246, 0.72);
+  font-size: 10px;
+}
+
+.preview-project-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 22px;
+}
+
+.preview-project-links a,
+.preview-certification-card a {
+  color: #8debf5;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.preview-project-links a:hover,
+.preview-certification-card a:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================================
+   EDUCATION + EXPERIENCE TIMELINE
+   ========================================= */
+
+.preview-timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.preview-timeline::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: rgba(120, 231, 245, 0.15);
+}
+
+.preview-timeline-card {
+  position: relative;
+  display: flex;
+  gap: 22px;
+  padding-left: 0;
+}
+
+.timeline-dot {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 17px;
+  margin-top: 3px;
+  border-radius: 50%;
+  border: 3px solid #041c28;
+  background: #78e7f5;
+  box-shadow: 0 0 18px rgba(120, 231, 245, 0.35);
+  z-index: 2;
+}
+
+.preview-timeline-card > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.preview-timeline-card strong {
+  color: rgba(141, 235, 245, 0.8);
+  font-size: 12px;
+}
+
+.preview-timeline-card span {
+  color: rgba(220, 247, 252, 0.38);
+  font-size: 11px;
+}
+
+.preview-timeline-card small {
+  color: rgba(220, 247, 252, 0.3);
+  font-size: 10px;
+}
+
+
+/* =========================================
+   CERTIFICATIONS
+   ========================================= */
+
+.preview-certification-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.preview-certification-card {
+  padding: 25px;
+  border-radius: 19px;
+  border: 1px solid rgba(120, 231, 245, 0.1);
+  background: rgba(2, 17, 25, 0.38);
+}
+
+.certificate-icon {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 18px;
+  border-radius: 11px;
+  background: rgba(120, 231, 245, 0.08);
+  color: #8debf5;
+}
+
+.preview-certification-card strong {
+  display: block;
+  margin-top: 9px;
+  color: rgba(141, 235, 245, 0.72);
+  font-size: 12px;
+}
+
+.preview-certification-card small {
+  display: block;
+  margin-top: 6px;
+  color: rgba(220, 247, 252, 0.3);
+  font-size: 10px;
+}
+
+
+/* =========================================
+   ACHIEVEMENTS
+   ========================================= */
+
+.preview-achievement-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.preview-achievement-card {
+  display: flex;
+  gap: 18px;
+  padding: 22px;
+  border-radius: 17px;
+  border: 1px solid rgba(120, 231, 245, 0.08);
+  background: rgba(2, 17, 25, 0.35);
+}
+
+.achievement-marker {
+  flex: 0 0 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: rgba(120, 231, 245, 0.07);
+  color: #78e7f5;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 800px) {
+
+  .live-preview-header {
+    padding: 12px 5%;
+  }
+
+  .preview-header-actions {
+    gap: 7px;
+  }
+
+  .preview-back-button,
+  .publish-preview-button {
+    padding: 9px 11px;
+    font-size: 10px;
+  }
+
+  .live-preview-container {
+    width: 92%;
+    padding-top: 35px;
+  }
+
+  .preview-hero {
+    min-height: 450px;
+    padding: 50px 6%;
+    border-radius: 24px;
+  }
+
+  .preview-hero h1 {
+    font-size: clamp(38px, 12vw, 60px);
+    letter-spacing: -2px;
+  }
+
+  .preview-hero > p {
+    font-size: 14px;
+  }
+
+  .preview-section {
+    padding: 27px 20px;
+    border-radius: 21px;
+  }
+
+  .preview-project-grid,
+  .preview-certification-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media (max-width: 520px) {
+
+  .live-preview-header .form-brand {
+    font-size: 12px;
+  }
+
+  .preview-back-button {
+    font-size: 0;
+  }
+
+  .preview-back-button::before {
+    content: "← Edit";
+    font-size: 10px;
+  }
+
+  .publish-preview-button {
+    font-size: 10px;
+  }
+
+  .preview-profile-photo,
+  .preview-profile-placeholder {
+    width: 105px;
+    height: 105px;
+  }
+
+  .preview-profile-placeholder {
+    font-size: 38px;
+  }
+
+  .preview-section-heading {
+    align-items: center;
+  }
+
+  .preview-section-heading h2 {
+    font-size: 25px;
+  }
+
+  .preview-project-card {
+    padding: 21px;
+  }
+
+  .preview-achievement-card {
+    padding: 18px;
+  }
+}
+/* =========================================
+   TEMPHOLIO — TEMPLATE-AWARE LIVE PREVIEW
+   ========================================= */
+
+.live-preview-page {
+  min-height: 100vh;
+  transition: all 0.35s ease;
+}
+
+/* =========================================
+   TEMPLATE 01 — NOVA
+   ========================================= */
+
+.live-preview-page.template-1 {
+  background:
+    radial-gradient(
+      circle at 15% 10%,
+      rgba(120, 231, 245, 0.12),
+      transparent 30%
+    ),
+    linear-gradient(145deg, #03151d, #061f29 55%, #021117);
+}
+
+.template-1 .preview-hero {
+  border-radius: 30px;
+  border: 1px solid rgba(120, 231, 245, 0.18);
+  background: rgba(5, 29, 39, 0.58);
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.template-1 .preview-hero h1 {
+  letter-spacing: -2px;
+}
+
+.template-1 .preview-section {
+  border-left: 2px solid rgba(120, 231, 245, 0.25);
+}
+
+
+/* =========================================
+   TEMPLATE 02 — GLASS
+   ========================================= */
+
+.live-preview-page.template-2 {
+  background:
+    linear-gradient(
+      135deg,
+      #07131d,
+      #102a3b,
+      #081722
+    );
+}
+
+.template-2 .preview-hero {
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(22px);
+  border-radius: 24px;
+}
+
+.template-2 .preview-profile-photo,
+.template-2 .preview-profile-placeholder {
+  border-radius: 50%;
+}
+
+.template-2 .preview-project-card {
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(15px);
+}
+
+.template-2 .preview-section-heading h2 {
+  letter-spacing: 1px;
+}
+
+
+/* =========================================
+   TEMPLATE 03 — MINIMAL
+   ========================================= */
+
+.live-preview-page.template-3 {
+  background: #f5f7f8;
+  color: #18242b;
+}
+
+.template-3 .live-preview-header {
+  background: rgba(245, 247, 248, 0.92);
+  border-bottom: 1px solid rgba(20, 40, 50, 0.1);
+}
+
+.template-3 .form-brand {
+  color: #18242b;
+}
+
+.template-3 .preview-hero {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  text-align: left;
+}
+
+.template-3 .preview-hero h1 {
+  color: #14232b;
+  font-size: clamp(48px, 8vw, 92px);
+  letter-spacing: -4px;
+}
+
+.template-3 .preview-hero p {
+  color: #52616a;
+  max-width: 700px;
+}
+
+.template-3 .preview-section {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-top: 1px solid rgba(20, 40, 50, 0.12);
+  border-radius: 0;
+}
+
+.template-3 .preview-section-heading h2 {
+  color: #14232b;
+}
+
+.template-3 .preview-project-card {
+  background: white;
+  border: 1px solid rgba(20, 40, 50, 0.08);
+  box-shadow: 0 12px 35px rgba(20, 40, 50, 0.06);
+}
+
+.template-3 .preview-project-card h3 {
+  color: #14232b;
+}
+
+
+/* =========================================
+   TEMPLATE 04 — NEUMORPHIC
+   ========================================= */
+
+.live-preview-page.template-4 {
+  background: #dce8ec;
+}
+
+.template-4 .preview-hero,
+.template-4 .preview-section,
+.template-4 .preview-project-card {
+  background: #dce8ec;
+  border: none;
+  box-shadow:
+    12px 12px 25px rgba(120, 140, 150, 0.28),
+    -12px -12px 25px rgba(255, 255, 255, 0.8);
+}
+
+.template-4 .preview-profile-photo,
+.template-4 .preview-profile-placeholder {
+  border-radius: 28px;
+  box-shadow:
+    8px 8px 18px rgba(120, 140, 150, 0.3),
+    -8px -8px 18px rgba(255, 255, 255, 0.8);
+}
+
+
+/* =========================================
+   TEMPLATE 05 — SKEUOMORPHIC
+   ========================================= */
+
+.live-preview-page.template-5 {
+  background:
+    linear-gradient(
+      135deg,
+      #1a2024,
+      #30383d
+    );
+}
+
+.template-5 .preview-hero,
+.template-5 .preview-section,
+.template-5 .preview-project-card {
+  background:
+    linear-gradient(
+      145deg,
+      #343e43,
+      #20282c
+    );
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 14px 30px rgba(0, 0, 0, 0.3);
+}
+
+.template-5 .preview-project-card {
+  border-radius: 10px;
+}
+
+
+/* =========================================
+   TEMPLATE 06 — MAXIMALISM
+   ========================================= */
+
+.live-preview-page.template-6 {
+  background:
+    radial-gradient(circle at 10% 20%, rgba(255, 130, 100, 0.18), transparent 25%),
+    radial-gradient(circle at 90% 10%, rgba(120, 231, 245, 0.18), transparent 25%),
+    radial-gradient(circle at 50% 90%, rgba(180, 120, 255, 0.18), transparent 30%),
+    #120d19;
+}
+
+.template-6 .preview-hero {
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0;
+  transform: rotate(-0.5deg);
+}
+
+.template-6 .preview-hero h1 {
+  font-size: clamp(55px, 9vw, 110px);
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: -5px;
+}
+
+.template-6 .preview-project-card {
+  border-radius: 0;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+
+/* =========================================
+   TEMPLATE 07+ — PREMIUM DARK DEFAULT
+   ========================================= */
+
+.live-preview-page[class*="template-"] .preview-section {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.live-preview-page[class*="template-"] .preview-project-card {
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.live-preview-page[class*="template-"] .preview-project-card:hover {
+  transform: translateY(-6px);
+}
+/* =========================================
+   TEMPHOLIO — UNIVERSAL READABILITY LAYER
+   Keeps each template's theme intact
+   ========================================= */
+
+.live-preview-page {
+  color: #f3fbfd;
+}
+
+/* Main headings */
+.live-preview-page .preview-hero h1,
+.live-preview-page .preview-section-heading h2,
+.live-preview-page .preview-project-card h3,
+.live-preview-page .preview-timeline-card h3,
+.live-preview-page .preview-certification-card h3,
+.live-preview-page .preview-achievement-card h3 {
+  color: #f8feff;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.18);
+}
+
+/* Normal text */
+.live-preview-page .preview-hero p,
+.live-preview-page .preview-project-card p,
+.live-preview-page .preview-timeline-card p,
+.live-preview-page .preview-certification-card p,
+.live-preview-page .preview-achievement-card p {
+  color: rgba(238, 249, 252, 0.78);
+}
+
+/* Secondary information */
+.live-preview-page .preview-timeline-card span,
+.live-preview-page .preview-timeline-card small,
+.live-preview-page .preview-certification-card small,
+.live-preview-page .preview-achievement-card small {
+  color: rgba(230, 246, 250, 0.68);
+}
+
+/* Strong company / institution / organization names */
+.live-preview-page .preview-timeline-card strong,
+.live-preview-page .preview-certification-card strong,
+.live-preview-page .preview-achievement-card strong {
+  color: #dffaff;
+}
+
+/* Section labels */
+.live-preview-page .preview-section-heading span {
+  color: #78e7f5;
+}
+
+/* Skill pills */
+.live-preview-page .preview-skills span,
+.live-preview-page .preview-tech-list span {
+  color: #eafcff;
+  border-color: rgba(120, 231, 245, 0.28);
+  background: rgba(120, 231, 245, 0.08);
+}
+
+/* Project links */
+.live-preview-page .preview-project-links a,
+.live-preview-page .preview-certification-card a,
+.live-preview-page .preview-contact-links a {
+  color: #8debf5;
+  text-shadow: 0 0 12px rgba(120, 231, 245, 0.15);
+}
+
+/* =========================================
+   LIGHT-THEME TEMPLATES
+   Keep their theme, switch typography
+   ========================================= */
+
+.live-preview-page.template-3,
+.live-preview-page.template-4 {
+  color: #17252c;
+}
+
+.live-preview-page.template-3 .preview-hero h1,
+.live-preview-page.template-3 .preview-section-heading h2,
+.live-preview-page.template-3 .preview-project-card h3,
+.live-preview-page.template-3 .preview-timeline-card h3,
+.live-preview-page.template-3 .preview-certification-card h3,
+.live-preview-page.template-3 .preview-achievement-card h3 {
+  color: #15242b;
+  text-shadow: none;
+}
+
+.live-preview-page.template-3 .preview-hero p,
+.live-preview-page.template-3 .preview-project-card p,
+.live-preview-page.template-3 .preview-timeline-card p,
+.live-preview-page.template-3 .preview-certification-card p,
+.live-preview-page.template-3 .preview-achievement-card p {
+  color: #53636b;
+}
+
+.live-preview-page.template-3 .preview-timeline-card strong,
+.live-preview-page.template-3 .preview-certification-card strong,
+.live-preview-page.template-3 .preview-achievement-card strong {
+  color: #263941;
+}
+
+.live-preview-page.template-3 .preview-timeline-card span,
+.live-preview-page.template-3 .preview-timeline-card small,
+.live-preview-page.template-3 .preview-certification-card small,
+.live-preview-page.template-3 .preview-achievement-card small {
+  color: #64757d;
+}
+
+.live-preview-page.template-3 .preview-skills span,
+.live-preview-page.template-3 .preview-tech-list span {
+  color: #20343c;
+  background: rgba(20, 100, 120, 0.08);
+  border-color: rgba(20, 100, 120, 0.16);
+}
+
+.live-preview-page.template-3 .preview-project-links a,
+.live-preview-page.template-3 .preview-certification-card a,
+.live-preview-page.template-3 .preview-contact-links a {
+  color: #087f99;
+}
+
+
+/* =========================================
+   NEUMORPHIC READABILITY
+   Theme remains soft — text gets contrast
+   ========================================= */
+
+.live-preview-page.template-4 .preview-hero h1,
+.live-preview-page.template-4 .preview-section-heading h2,
+.live-preview-page.template-4 .preview-project-card h3,
+.live-preview-page.template-4 .preview-timeline-card h3,
+.live-preview-page.template-4 .preview-certification-card h3,
+.live-preview-page.template-4 .preview-achievement-card h3 {
+  color: #26383f;
+  text-shadow:
+    1px 1px 1px rgba(255, 255, 255, 0.7);
+}
+
+.live-preview-page.template-4 .preview-hero p,
+.live-preview-page.template-4 .preview-project-card p,
+.live-preview-page.template-4 .preview-timeline-card p,
+.live-preview-page.template-4 .preview-certification-card p,
+.live-preview-page.template-4 .preview-achievement-card p {
+  color: #53656c;
+}
+
+.live-preview-page.template-4 .preview-timeline-card strong,
+.live-preview-page.template-4 .preview-certification-card strong,
+.live-preview-page.template-4 .preview-achievement-card strong {
+  color: #354950;
+}
+
+.live-preview-page.template-4 .preview-timeline-card span,
+.live-preview-page.template-4 .preview-timeline-card small,
+.live-preview-page.template-4 .preview-certification-card small,
+.live-preview-page.template-4 .preview-achievement-card small {
+  color: #65777d;
+}
+
+.live-preview-page.template-4 .preview-skills span,
+.live-preview-page.template-4 .preview-tech-list span {
+  color: #344950;
+  background: rgba(80, 110, 120, 0.08);
+  border-color: rgba(70, 100, 110, 0.18);
+}
+
+.live-preview-page.template-4 .preview-project-links a,
+.live-preview-page.template-4 .preview-certification-card a,
+.live-preview-page.template-4 .preview-contact-links a {
+  color: #087d96;
+}
+
+
+/* =========================================
+   EXTRA CARD SEPARATION
+   Doesn't alter the theme
+   ========================================= */
+
+.live-preview-page .preview-project-card,
+.live-preview-page .preview-certification-card,
+.live-preview-page .preview-achievement-card {
+  position: relative;
+}
+
+.live-preview-page .preview-project-card::before,
+.live-preview-page .preview-certification-card::before,
+.live-preview-page .preview-achievement-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.025),
+    transparent 45%
+  );
+}
+
+/* Make interactive elements clearly visible */
+.live-preview-page a {
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.live-preview-page a:hover {
+  opacity: 0.8;
+}
+
+/* =========================================
+   MOBILE READABILITY
+   ========================================= */
+
+@media (max-width: 700px) {
+  .live-preview-page .preview-hero h1 {
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  .live-preview-page .preview-hero p {
+    line-height: 1.7;
+  }
+}
+/* =========================================
+   TEMPLATE 24 — EXECUTIVE
+   High readability without changing theme
+   ========================================= */
+
+.live-preview-page.template-24 {
+  color: #17242b;
+}
+
+/* Main heading */
+.live-preview-page.template-24 .preview-hero h1 {
+  color: #101c22;
+  text-shadow: none;
+}
+
+/* Hero paragraph */
+.live-preview-page.template-24 .preview-hero p {
+  color: #40545c;
+}
+
+/* Section headings */
+.live-preview-page.template-24 .preview-section-heading h2 {
+  color: #17272e;
+}
+
+.live-preview-page.template-24 .preview-section-heading span {
+  color: #567b86;
+}
+
+/* Cards */
+.live-preview-page.template-24 .preview-project-card,
+.live-preview-page.template-24 .preview-certification-card,
+.live-preview-page.template-24 .preview-achievement-card {
+  color: #1d3037;
+}
+
+/* Card headings */
+.live-preview-page.template-24 .preview-project-card h3,
+.live-preview-page.template-24 .preview-certification-card h3,
+.live-preview-page.template-24 .preview-achievement-card h3,
+.live-preview-page.template-24 .preview-timeline-card h3 {
+  color: #14242b;
+  text-shadow: none;
+}
+
+/* Card descriptions */
+.live-preview-page.template-24 .preview-project-card p,
+.live-preview-page.template-24 .preview-certification-card p,
+.live-preview-page.template-24 .preview-achievement-card p,
+.live-preview-page.template-24 .preview-timeline-card p {
+  color: #4a5d64;
+}
+
+/* Company / institution / organization */
+.live-preview-page.template-24 .preview-timeline-card strong,
+.live-preview-page.template-24 .preview-certification-card strong,
+.live-preview-page.template-24 .preview-achievement-card strong {
+  color: #263b43;
+}
+
+/* Dates and secondary information */
+.live-preview-page.template-24 .preview-timeline-card span,
+.live-preview-page.template-24 .preview-timeline-card small,
+.live-preview-page.template-24 .preview-certification-card small,
+.live-preview-page.template-24 .preview-achievement-card small {
+  color: #60747b;
+}
+
+/* Skills */
+.live-preview-page.template-24 .preview-skills span,
+.live-preview-page.template-24 .preview-tech-list span {
+  color: #20363e;
+  background: rgba(20, 50, 60, 0.07);
+  border-color: rgba(20, 50, 60, 0.18);
+}
+
+/* Links */
+.live-preview-page.template-24 .preview-contact-links a,
+.live-preview-page.template-24 .preview-project-links a,
+.live-preview-page.template-24 .preview-certification-card a {
+  color: #17677b;
+  font-weight: 700;
+}
+
+/* Timeline */
+.live-preview-page.template-24 .timeline-dot {
+  background: #356a78;
+  box-shadow: 0 0 0 5px rgba(53, 106, 120, 0.12);
+}
+
+/* Featured badge */
+.live-preview-page.template-24 .preview-featured-badge {
+  color: #19363e;
+  background: rgba(53, 106, 120, 0.1);
+  border-color: rgba(53, 106, 120, 0.2);
+}

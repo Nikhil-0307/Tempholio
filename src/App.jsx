@@ -529,7 +529,9 @@ function App() {
   const [templateCategory, setTemplateCategory] = useState("All");
   const [showPortfolioForm, setShowPortfolioForm] = useState(false);
   const [portfolioStep, setPortfolioStep] = useState(1);
-const [portfolioData, setPortfolioData] = useState({
+  const [showLivePreview, setShowLivePreview] = useState(false);
+  const [portfolioData, setPortfolioData] = useState({
+    
   fullName: "",
   professionalTitle: "",
   about: "",
@@ -549,6 +551,44 @@ const [portfolioData, setPortfolioData] = useState({
     githubLink: "",
     image: "",
     featured: false,
+  },
+],
+education: [
+  {
+    degree: "",
+    institution: "",
+    location: "",
+    startYear: "",
+    endYear: "",
+    description: "",
+  },
+],
+experience: [
+  {
+    jobTitle: "",
+    company: "",
+    location: "",
+    startDate: "",
+    endDate: "",
+    description: "",
+  },
+],
+certifications: [
+  {
+    title: "",
+    organization: "",
+    date: "",
+    credentialLink: "",
+    description: "",
+  },
+],
+
+achievements: [
+  {
+    title: "",
+    organization: "",
+    date: "",
+    description: "",
   },
 ],
 });
@@ -1389,6 +1429,665 @@ const removeProject = (index) => {
     ),
   }));
 };
+const updateEducation = (index, field, value) => {
+  setPortfolioData((current) => ({
+    ...current,
+    education: current.education.map((education, educationIndex) =>
+      educationIndex === index
+        ? {
+            ...education,
+            [field]: value,
+          }
+        : education
+    ),
+  }));
+};
+
+const addEducation = () => {
+  setPortfolioData((current) => ({
+    ...current,
+    education: [
+      ...current.education,
+      {
+        degree: "",
+        institution: "",
+        location: "",
+        startYear: "",
+        endYear: "",
+        description: "",
+      },
+    ],
+  }));
+};
+
+const removeEducation = (index) => {
+  setPortfolioData((current) => ({
+    ...current,
+    education: current.education.filter(
+      (_, educationIndex) => educationIndex !== index
+    ),
+  }));
+};
+const updateExperience = (index, field, value) => {
+  setPortfolioData((current) => ({
+    ...current,
+    experience: current.experience.map(
+      (experience, experienceIndex) =>
+        experienceIndex === index
+          ? {
+              ...experience,
+              [field]: value,
+            }
+          : experience
+    ),
+  }));
+};
+
+const addExperience = () => {
+  setPortfolioData((current) => ({
+    ...current,
+    experience: [
+      ...current.experience,
+      {
+        jobTitle: "",
+        company: "",
+        location: "",
+        startDate: "",
+        endDate: "",
+        description: "",
+      },
+    ],
+  }));
+};
+
+const removeExperience = (index) => {
+  setPortfolioData((current) => ({
+    ...current,
+    experience: current.experience.filter(
+      (_, experienceIndex) => experienceIndex !== index
+    ),
+  }));
+};
+const updateCertification = (index, field, value) => {
+  setPortfolioData((current) => ({
+    ...current,
+    certifications: current.certifications.map(
+      (certification, certificationIndex) =>
+        certificationIndex === index
+          ? {
+              ...certification,
+              [field]: value,
+            }
+          : certification
+    ),
+  }));
+};
+
+const addCertification = () => {
+  setPortfolioData((current) => ({
+    ...current,
+    certifications: [
+      ...current.certifications,
+      {
+        title: "",
+        organization: "",
+        date: "",
+        credentialLink: "",
+        description: "",
+      },
+    ],
+  }));
+};
+
+const removeCertification = (index) => {
+  setPortfolioData((current) => ({
+    ...current,
+    certifications: current.certifications.filter(
+      (_, certificationIndex) =>
+        certificationIndex !== index
+    ),
+  }));
+};
+
+const updateAchievement = (index, field, value) => {
+  setPortfolioData((current) => ({
+    ...current,
+    achievements: current.achievements.map(
+      (achievement, achievementIndex) =>
+        achievementIndex === index
+          ? {
+              ...achievement,
+              [field]: value,
+            }
+          : achievement
+    ),
+  }));
+};
+
+const addAchievement = () => {
+  setPortfolioData((current) => ({
+    ...current,
+    achievements: [
+      ...current.achievements,
+      {
+        title: "",
+        organization: "",
+        date: "",
+        description: "",
+      },
+    ],
+  }));
+};
+
+const removeAchievement = (index) => {
+  setPortfolioData((current) => ({
+    ...current,
+    achievements: current.achievements.filter(
+      (_, achievementIndex) =>
+        achievementIndex !== index
+    ),
+  }));
+};
+  if (showLivePreview) {
+  return (
+    <div className={`live-preview-page template-${selectedTemplate}`}>
+      <header className="live-preview-header">
+
+        <div className="form-brand">
+          <span className="brand-dot"></span>
+          TEMPHOLIO
+        </div>
+
+        <div className="preview-header-actions">
+
+          <button
+            type="button"
+            className="preview-back-button"
+            onClick={() => setShowLivePreview(false)}
+          >
+            ← Back to Edit
+          </button>
+
+          <button
+            type="button"
+            className="publish-preview-button"
+          >
+            Publish
+            <strong>→</strong>
+          </button>
+
+        </div>
+
+      </header>
+
+
+      <main className="live-preview-container">
+
+        {/* PREVIEW HERO */}
+        <section className={`preview-hero preview-hero-${selectedTemplate}`}>
+          {portfolioData.profilePhoto ? (
+            <img
+              className="preview-profile-photo"
+              src={portfolioData.profilePhoto}
+              alt={portfolioData.fullName || "Profile"}
+            />
+          ) : (
+            <div className="preview-profile-placeholder">
+              {portfolioData.fullName
+                ? portfolioData.fullName.charAt(0).toUpperCase()
+                : "T"}
+            </div>
+          )}
+
+          <span className="preview-eyebrow">
+            {portfolioData.professionalTitle ||
+              "YOUR PROFESSIONAL PORTFOLIO"}
+          </span>
+
+          <h1>
+            {portfolioData.fullName ||
+              "Your Name"}
+          </h1>
+
+          <p>
+            {portfolioData.about ||
+              "Your professional introduction will appear here."}
+          </p>
+
+          <div className="preview-contact-links">
+
+            {portfolioData.email && (
+              <a href={`mailto:${portfolioData.email}`}>
+                Email
+              </a>
+            )}
+
+            {portfolioData.linkedin && (
+              <a
+                href={portfolioData.linkedin}
+                target="_blank"
+                rel="noreferrer"
+              >
+                LinkedIn
+              </a>
+            )}
+
+            {portfolioData.github && (
+              <a
+                href={portfolioData.github}
+                target="_blank"
+                rel="noreferrer"
+              >
+                GitHub
+              </a>
+            )}
+
+          </div>
+
+        </section>
+
+
+        {/* SKILLS */}
+
+        {portfolioData.skills && (
+          <section className="preview-section">
+
+            <div className="preview-section-heading">
+              <span>01</span>
+              <h2>Skills</h2>
+            </div>
+
+            <div className="preview-skills">
+
+              {portfolioData.skills
+                .split(",")
+                .map((skill, index) => (
+                  <span key={index}>
+                    {skill.trim()}
+                  </span>
+                ))}
+
+            </div>
+
+          </section>
+        )}
+
+
+        {/* PROJECTS */}
+
+        {portfolioData.projects.some(
+          (project) => project.name
+        ) && (
+          <section className="preview-section">
+
+            <div className="preview-section-heading">
+              <span>02</span>
+              <h2>Projects</h2>
+            </div>
+
+            <div className="preview-project-grid">
+
+              {portfolioData.projects
+                .filter((project) => project.name)
+                .map((project, index) => (
+
+                  <article
+                    className={`preview-project-card ${
+                      project.featured
+                        ? "featured-project"
+                        : ""
+                    }`}
+                    key={index}
+                  >
+
+                    {project.featured && (
+                      <span className="preview-featured-badge">
+                        FEATURED
+                      </span>
+                    )}
+
+                    <h3>{project.name}</h3>
+
+                    {project.description && (
+                      <p>
+                        {project.description}
+                      </p>
+                    )}
+
+                    {project.technologies && (
+                      <div className="preview-tech-list">
+
+                        {project.technologies
+                          .split(",")
+                          .map((tech, techIndex) => (
+                            <span key={techIndex}>
+                              {tech.trim()}
+                            </span>
+                          ))}
+
+                      </div>
+                    )}
+
+                    <div className="preview-project-links">
+
+                      {project.liveLink && (
+                        <a
+                          href={project.liveLink}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          Live Project ↗
+                        </a>
+                      )}
+
+                      {project.githubLink && (
+                        <a
+                          href={project.githubLink}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          GitHub ↗
+                        </a>
+                      )}
+
+                    </div>
+
+                  </article>
+
+                ))}
+
+            </div>
+
+          </section>
+        )}
+
+
+        {/* EDUCATION */}
+
+        {portfolioData.education.some(
+          (education) => education.degree
+        ) && (
+          <section className="preview-section">
+
+            <div className="preview-section-heading">
+              <span>03</span>
+              <h2>Education</h2>
+            </div>
+
+            <div className="preview-timeline">
+
+              {portfolioData.education
+                .filter((education) => education.degree)
+                .map((education, index) => (
+
+                  <article
+                    className="preview-timeline-card"
+                    key={index}
+                  >
+
+                    <div className="timeline-dot"></div>
+
+                    <div>
+
+                      <h3>
+                        {education.degree}
+                      </h3>
+
+                      <strong>
+                        {education.institution}
+                      </strong>
+
+                      {education.location && (
+                        <span>
+                          {education.location}
+                        </span>
+                      )}
+
+                      {(education.startYear ||
+                        education.endYear) && (
+                        <small>
+                          {education.startYear}
+                          {education.startYear &&
+                            education.endYear
+                            ? " — "
+                            : ""}
+                          {education.endYear}
+                        </small>
+                      )}
+
+                      {education.description && (
+                        <p>
+                          {education.description}
+                        </p>
+                      )}
+
+                    </div>
+
+                  </article>
+
+                ))}
+
+            </div>
+
+          </section>
+        )}
+
+
+        {/* EXPERIENCE */}
+
+        {portfolioData.experience.some(
+          (experience) => experience.jobTitle
+        ) && (
+          <section className="preview-section">
+
+            <div className="preview-section-heading">
+              <span>04</span>
+              <h2>Experience</h2>
+            </div>
+
+            <div className="preview-timeline">
+
+              {portfolioData.experience
+                .filter(
+                  (experience) => experience.jobTitle
+                )
+                .map((experience, index) => (
+
+                  <article
+                    className="preview-timeline-card"
+                    key={index}
+                  >
+
+                    <div className="timeline-dot"></div>
+
+                    <div>
+
+                      <h3>
+                        {experience.jobTitle}
+                      </h3>
+
+                      <strong>
+                        {experience.company}
+                      </strong>
+
+                      {experience.location && (
+                        <span>
+                          {experience.location}
+                        </span>
+                      )}
+
+                      {(experience.startDate ||
+                        experience.endDate) && (
+                        <small>
+                          {experience.startDate}
+                          {experience.startDate &&
+                            experience.endDate
+                            ? " — "
+                            : ""}
+                          {experience.endDate}
+                        </small>
+                      )}
+
+                      {experience.description && (
+                        <p>
+                          {experience.description}
+                        </p>
+                      )}
+
+                    </div>
+
+                  </article>
+
+                ))}
+
+            </div>
+
+          </section>
+        )}
+
+
+        {/* CERTIFICATIONS */}
+
+        {portfolioData.certifications.some(
+          (certification) => certification.title
+        ) && (
+          <section className="preview-section">
+
+            <div className="preview-section-heading">
+              <span>05</span>
+              <h2>Certifications</h2>
+            </div>
+
+            <div className="preview-certification-grid">
+
+              {portfolioData.certifications
+                .filter(
+                  (certification) =>
+                    certification.title
+                )
+                .map((certification, index) => (
+
+                  <article
+                    className="preview-certification-card"
+                    key={index}
+                  >
+
+                    <span className="certificate-icon">
+                      ✦
+                    </span>
+
+                    <h3>
+                      {certification.title}
+                    </h3>
+
+                    {certification.organization && (
+                      <strong>
+                        {certification.organization}
+                      </strong>
+                    )}
+
+                    {certification.date && (
+                      <small>
+                        {certification.date}
+                      </small>
+                    )}
+
+                    {certification.description && (
+                      <p>
+                        {certification.description}
+                      </p>
+                    )}
+
+                    {certification.credentialLink && (
+                      <a
+                        href={certification.credentialLink}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        View Credential ↗
+                      </a>
+                    )}
+
+                  </article>
+
+                ))}
+
+            </div>
+
+          </section>
+        )}
+
+
+        {/* ACHIEVEMENTS */}
+
+        {portfolioData.achievements.some(
+          (achievement) => achievement.title
+        ) && (
+          <section className="preview-section">
+
+            <div className="preview-section-heading">
+              <span>06</span>
+              <h2>Achievements & Participation</h2>
+            </div>
+
+            <div className="preview-achievement-list">
+
+              {portfolioData.achievements
+                .filter(
+                  (achievement) =>
+                    achievement.title
+                )
+                .map((achievement, index) => (
+
+                  <article
+                    className="preview-achievement-card"
+                    key={index}
+                  >
+
+                    <div className="achievement-marker">
+                      {String(index + 1).padStart(2, "0")}
+                    </div>
+
+                    <div>
+
+                      <h3>
+                        {achievement.title}
+                      </h3>
+
+                      {achievement.organization && (
+                        <strong>
+                          {achievement.organization}
+                        </strong>
+                      )}
+
+                      {achievement.date && (
+                        <small>
+                          {achievement.date}
+                        </small>
+                      )}
+
+                      {achievement.description && (
+                        <p>
+                          {achievement.description}
+                        </p>
+                      )}
+
+                    </div>
+
+                  </article>
+
+                ))}
+
+            </div>
+
+          </section>
+        )}
+
+      </main>
+
+    </div>
+  );
+}
   if (showPortfolioForm) {
   return (
     <div className="portfolio-form-page">
@@ -1985,9 +2684,7 @@ const removeProject = (index) => {
         <button
           type="button"
           className="continue-projects-button"
-          onClick={() =>
-            console.log("Projects:", portfolioData.projects)
-          }
+          onClick={() => setPortfolioStep(3)}
         >
           Continue to Education
           <strong>→</strong>
@@ -2000,6 +2697,808 @@ const removeProject = (index) => {
   </>
 )}
         </form>
+        {portfolioStep === 3 && (
+  <>
+    <section className="form-section education-section">
+
+      <div className="form-section-heading">
+        <div className="section-number">
+          05
+        </div>
+
+        <div>
+          <h2>Education</h2>
+          <p>
+            Tell us about your educational journey.
+          </p>
+        </div>
+      </div>
+
+      <div className="education-list">
+
+        {portfolioData.education.map((education, index) => (
+
+          <div
+            className="education-card"
+            key={index}
+          >
+
+            <div className="education-card-header">
+
+              <div>
+                <span className="education-number">
+                  EDUCATION {String(index + 1).padStart(2, "0")}
+                </span>
+
+                <h3>
+                  {education.degree ||
+                    `Education ${index + 1}`}
+                </h3>
+              </div>
+
+              {portfolioData.education.length > 1 && (
+                <button
+                  type="button"
+                  className="remove-education-button"
+                  onClick={() =>
+                    removeEducation(index)
+                  }
+                >
+                  Remove
+                </button>
+              )}
+
+            </div>
+
+            <div className="form-fields">
+
+              <div className="form-field full-width">
+                <label>DEGREE / COURSE</label>
+
+                <input
+                  type="text"
+                  placeholder="e.g. B.Com Information Technology"
+                  value={education.degree}
+                  onChange={(event) =>
+                    updateEducation(
+                      index,
+                      "degree",
+                      event.target.value
+                    )
+                  }
+                />
+              </div>
+
+              <div className="form-field">
+                <label>INSTITUTION</label>
+
+                <input
+                  type="text"
+                  placeholder="e.g. KPR College of Arts Science and Research"
+                  value={education.institution}
+                  onChange={(event) =>
+                    updateEducation(
+                      index,
+                      "institution",
+                      event.target.value
+                    )
+                  }
+                />
+              </div>
+
+              <div className="form-field">
+                <label>LOCATION</label>
+
+                <input
+                  type="text"
+                  placeholder="e.g. Coimbatore, Tamil Nadu"
+                  value={education.location}
+                  onChange={(event) =>
+                    updateEducation(
+                      index,
+                      "location",
+                      event.target.value
+                    )
+                  }
+                />
+              </div>
+
+              <div className="form-field">
+                <label>START YEAR</label>
+
+                <input
+                  type="text"
+                  placeholder="e.g. 2023"
+                  value={education.startYear}
+                  onChange={(event) =>
+                    updateEducation(
+                      index,
+                      "startYear",
+                      event.target.value
+                    )
+                  }
+                />
+              </div>
+
+              <div className="form-field">
+                <label>END YEAR</label>
+
+                <input
+                  type="text"
+                  placeholder="e.g. 2027 or Present"
+                  value={education.endYear}
+                  onChange={(event) =>
+                    updateEducation(
+                      index,
+                      "endYear",
+                      event.target.value
+                    )
+                  }
+                />
+              </div>
+
+              <div className="form-field full-width">
+                <label>DESCRIPTION</label>
+
+                <textarea
+                  placeholder="Add relevant coursework, achievements, activities, or anything you'd like to highlight..."
+                  value={education.description}
+                  onChange={(event) =>
+                    updateEducation(
+                      index,
+                      "description",
+                      event.target.value
+                    )
+                  }
+                />
+              </div>
+
+            </div>
+
+          </div>
+
+        ))}
+
+      </div>
+
+      <button
+        type="button"
+        className="add-education-button"
+        onClick={addEducation}
+      >
+        <span>＋</span>
+        Add Another Education
+      </button>
+
+    </section>
+
+    <div className="form-submit-area">
+
+      <div>
+        <span>05 / 07</span>
+        <p>
+          Your education helps tell your story.
+        </p>
+      </div>
+
+      <div className="project-navigation">
+
+        <button
+          type="button"
+          className="form-back-button"
+          onClick={() =>
+            setPortfolioStep(2)
+          }
+        >
+          ← Back to Projects
+        </button>
+
+        <button
+          type="button"
+          className="continue-projects-button"
+          onClick={() =>
+            setPortfolioStep(4)
+          }
+        >
+          Continue to Experience
+          <strong>→</strong>
+        </button>
+
+      </div>
+
+    </div>
+  </>
+)}
+{portfolioStep === 4 && (
+  <>
+    <section className="form-section experience-section">
+
+      <div className="form-section-heading">
+        <div className="section-number">
+          06
+        </div>
+
+        <div>
+          <h2>Experience</h2>
+          <p>
+            Showcase your professional experience and internships.
+          </p>
+        </div>
+      </div>
+
+      <div className="experience-list">
+
+        {portfolioData.experience.map((experience, index) => (
+
+          <div
+            className="experience-card"
+            key={index}
+          >
+
+            <div className="experience-card-header">
+
+              <div>
+                <span className="experience-number">
+                  EXPERIENCE {String(index + 1).padStart(2, "0")}
+                </span>
+
+                <h3>
+                  {experience.jobTitle ||
+                    `Experience ${index + 1}`}
+                </h3>
+              </div>
+
+              {portfolioData.experience.length > 1 && (
+                <button
+                  type="button"
+                  className="remove-experience-button"
+                  onClick={() =>
+                    removeExperience(index)
+                  }
+                >
+                  Remove
+                </button>
+              )}
+
+            </div>
+
+            <div className="form-fields">
+
+              {/* JOB TITLE */}
+              <div className="form-field">
+                <label>JOB TITLE / ROLE</label>
+
+                <input
+                  type="text"
+                  placeholder="e.g. Business Development Intern"
+                  value={experience.jobTitle}
+                  onChange={(event) =>
+                    updateExperience(
+                      index,
+                      "jobTitle",
+                      event.target.value
+                    )
+                  }
+                />
+              </div>
+
+              {/* COMPANY */}
+              <div className="form-field">
+                <label>COMPANY / ORGANIZATION</label>
+
+                <input
+                  type="text"
+                  placeholder="e.g. ABC Technologies"
+                  value={experience.company}
+                  onChange={(event) =>
+                    updateExperience(
+                      index,
+                      "company",
+                      event.target.value
+                    )
+                  }
+                />
+              </div>
+
+              {/* LOCATION */}
+              <div className="form-field">
+                <label>LOCATION</label>
+
+                <input
+                  type="text"
+                  placeholder="e.g. Coimbatore, Tamil Nadu"
+                  value={experience.location}
+                  onChange={(event) =>
+                    updateExperience(
+                      index,
+                      "location",
+                      event.target.value
+                    )
+                  }
+                />
+              </div>
+
+              {/* START DATE */}
+              <div className="form-field">
+                <label>START DATE</label>
+
+                <input
+                  type="text"
+                  placeholder="e.g. June 2026"
+                  value={experience.startDate}
+                  onChange={(event) =>
+                    updateExperience(
+                      index,
+                      "startDate",
+                      event.target.value
+                    )
+                  }
+                />
+              </div>
+
+              {/* END DATE */}
+              <div className="form-field">
+                <label>END DATE</label>
+
+                <input
+                  type="text"
+                  placeholder="e.g. August 2026 or Present"
+                  value={experience.endDate}
+                  onChange={(event) =>
+                    updateExperience(
+                      index,
+                      "endDate",
+                      event.target.value
+                    )
+                  }
+                />
+              </div>
+
+              {/* DESCRIPTION */}
+              <div className="form-field full-width">
+                <label>DESCRIPTION</label>
+
+                <textarea
+                  placeholder="Describe your responsibilities, contributions, achievements, or what you learned..."
+                  value={experience.description}
+                  onChange={(event) =>
+                    updateExperience(
+                      index,
+                      "description",
+                      event.target.value
+                    )
+                  }
+                />
+              </div>
+
+            </div>
+
+          </div>
+
+        ))}
+
+      </div>
+
+      {/* ADD EXPERIENCE */}
+      <button
+        type="button"
+        className="add-experience-button"
+        onClick={addExperience}
+      >
+        <span>＋</span>
+        Add Another Experience
+      </button>
+
+    </section>
+
+    {/* EXPERIENCE ACTIONS */}
+    <div className="form-submit-area">
+
+      <div>
+        <span>06 / 07</span>
+        <p>
+          Experience helps showcase your journey.
+        </p>
+      </div>
+
+      <div className="project-navigation">
+
+        <button
+          type="button"
+          className="form-back-button"
+          onClick={() => setPortfolioStep(3)}
+        >
+          ← Back to Education
+        </button>
+
+        <button
+          type="button"
+          className="continue-projects-button"
+          onClick={() => setPortfolioStep(5)}
+        >
+          Continue to Certifications
+          <strong>→</strong>
+        </button>
+
+      </div>
+
+    </div>
+  </>
+)}
+{portfolioStep === 5 && (
+  <>
+    {/* CERTIFICATIONS & ACHIEVEMENTS */}
+
+    <section className="form-section certification-section">
+
+      <div className="form-section-heading">
+        <div className="section-number">
+          07
+        </div>
+
+        <div>
+          <h2>Certifications & Achievements</h2>
+          <p>
+            Highlight certifications, awards, participation and accomplishments.
+          </p>
+        </div>
+      </div>
+
+
+      {/* =========================
+          CERTIFICATIONS
+      ========================= */}
+
+      <div className="subsection-heading">
+        <span>01</span>
+
+        <div>
+          <h3>Certifications</h3>
+          <p>
+            Add certificates that strengthen your professional profile.
+          </p>
+        </div>
+      </div>
+
+
+      <div className="certification-list">
+
+        {portfolioData.certifications.map(
+          (certification, index) => (
+
+            <div
+              className="certification-card"
+              key={index}
+            >
+
+              <div className="certification-card-header">
+
+                <div>
+                  <span className="certification-number">
+                    CERTIFICATION{" "}
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+
+                  <h3>
+                    {certification.title ||
+                      `Certification ${index + 1}`}
+                  </h3>
+                </div>
+
+                {portfolioData.certifications.length > 1 && (
+                  <button
+                    type="button"
+                    className="remove-certification-button"
+                    onClick={() =>
+                      removeCertification(index)
+                    }
+                  >
+                    Remove
+                  </button>
+                )}
+
+              </div>
+
+
+              <div className="form-fields">
+
+                <div className="form-field">
+                  <label>CERTIFICATION TITLE</label>
+
+                  <input
+                    type="text"
+                    placeholder="e.g. Advanced Excel"
+                    value={certification.title}
+                    onChange={(event) =>
+                      updateCertification(
+                        index,
+                        "title",
+                        event.target.value
+                      )
+                    }
+                  />
+                </div>
+
+
+                <div className="form-field">
+                  <label>ISSUED BY</label>
+
+                  <input
+                    type="text"
+                    placeholder="e.g. Infosys Springboard"
+                    value={certification.organization}
+                    onChange={(event) =>
+                      updateCertification(
+                        index,
+                        "organization",
+                        event.target.value
+                      )
+                    }
+                  />
+                </div>
+
+
+                <div className="form-field">
+                  <label>DATE</label>
+
+                  <input
+                    type="text"
+                    placeholder="e.g. September 2026"
+                    value={certification.date}
+                    onChange={(event) =>
+                      updateCertification(
+                        index,
+                        "date",
+                        event.target.value
+                      )
+                    }
+                  />
+                </div>
+
+
+                <div className="form-field">
+                  <label>CREDENTIAL / CERTIFICATE LINK</label>
+
+                  <input
+                    type="url"
+                    placeholder="https://example.com/certificate"
+                    value={certification.credentialLink}
+                    onChange={(event) =>
+                      updateCertification(
+                        index,
+                        "credentialLink",
+                        event.target.value
+                      )
+                    }
+                  />
+                </div>
+
+
+                <div className="form-field full-width">
+                  <label>DESCRIPTION</label>
+
+                  <textarea
+                    placeholder="Briefly describe what you learned or accomplished..."
+                    value={certification.description}
+                    onChange={(event) =>
+                      updateCertification(
+                        index,
+                        "description",
+                        event.target.value
+                      )
+                    }
+                  />
+                </div>
+
+              </div>
+
+            </div>
+
+          )
+        )}
+
+      </div>
+
+
+      <button
+        type="button"
+        className="add-certification-button"
+        onClick={addCertification}
+      >
+        <span>＋</span>
+        Add Another Certification
+      </button>
+
+
+      {/* =========================
+          ACHIEVEMENTS
+      ========================= */}
+
+      <div className="subsection-heading achievements-heading">
+
+        <span>02</span>
+
+        <div>
+          <h3>Achievements & Participation</h3>
+          <p>
+            Showcase awards, competitions, workshops, events and other accomplishments.
+          </p>
+        </div>
+
+      </div>
+
+
+      <div className="achievement-list">
+
+        {portfolioData.achievements.map(
+          (achievement, index) => (
+
+            <div
+              className="achievement-card"
+              key={index}
+            >
+
+              <div className="achievement-card-header">
+
+                <div>
+                  <span className="achievement-number">
+                    ACHIEVEMENT{" "}
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+
+                  <h3>
+                    {achievement.title ||
+                      `Achievement ${index + 1}`}
+                  </h3>
+                </div>
+
+                {portfolioData.achievements.length > 1 && (
+                  <button
+                    type="button"
+                    className="remove-achievement-button"
+                    onClick={() =>
+                      removeAchievement(index)
+                    }
+                  >
+                    Remove
+                  </button>
+                )}
+
+              </div>
+
+
+              <div className="form-fields">
+
+                <div className="form-field">
+                  <label>ACHIEVEMENT / PARTICIPATION</label>
+
+                  <input
+                    type="text"
+                    placeholder="e.g. Participated in Hackathon"
+                    value={achievement.title}
+                    onChange={(event) =>
+                      updateAchievement(
+                        index,
+                        "title",
+                        event.target.value
+                      )
+                    }
+                  />
+                </div>
+
+
+                <div className="form-field">
+                  <label>ORGANIZATION / EVENT</label>
+
+                  <input
+                    type="text"
+                    placeholder="e.g. College Tech Fest"
+                    value={achievement.organization}
+                    onChange={(event) =>
+                      updateAchievement(
+                        index,
+                        "organization",
+                        event.target.value
+                      )
+                    }
+                  />
+                </div>
+
+
+                <div className="form-field">
+                  <label>DATE</label>
+
+                  <input
+                    type="text"
+                    placeholder="e.g. March 2026"
+                    value={achievement.date}
+                    onChange={(event) =>
+                      updateAchievement(
+                        index,
+                        "date",
+                        event.target.value
+                      )
+                    }
+                  />
+                </div>
+
+
+                <div className="form-field full-width">
+                  <label>DESCRIPTION</label>
+
+                  <textarea
+                    placeholder="Describe your achievement, participation or experience..."
+                    value={achievement.description}
+                    onChange={(event) =>
+                      updateAchievement(
+                        index,
+                        "description",
+                        event.target.value
+                      )
+                    }
+                  />
+                </div>
+
+              </div>
+
+            </div>
+
+          )
+        )}
+
+      </div>
+
+
+      <button
+        type="button"
+        className="add-achievement-button"
+        onClick={addAchievement}
+      >
+        <span>＋</span>
+        Add Another Achievement
+      </button>
+
+    </section>
+
+
+    {/* =========================
+        FINAL ACTIONS
+    ========================= */}
+
+    <div className="form-submit-area">
+
+      <div>
+        <span>07 / 07</span>
+
+        <p>
+          Your information is ready for the next stage.
+        </p>
+      </div>
+
+
+      <div className="project-navigation">
+
+        <button
+          type="button"
+          className="form-back-button"
+          onClick={() => setPortfolioStep(4)}
+        >
+          ← Back to Experience
+        </button>
+        <button
+          type="button"
+          className="continue-projects-button"
+          onClick={() => setShowLivePreview(true)}
+        >
+          Continue to Preview
+          <strong>→</strong>
+        </button>
+      </div>
+
+    </div>
+
+  </>
+)}
 
       </main>
 
