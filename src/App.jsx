@@ -3639,6 +3639,10 @@ const removeAchievement = (index) => {
     <div className="recommended-header">
       <div>
         <span className="section-label">✦ SMART MATCH</span>
+        <h2>All Templates</h2>
+        <p>
+          Explore all 25 designs and choose the one you love.
+  </p>
         <h2>Recommended for you</h2>
         <p>
           Templates selected based on your career stage, field,
@@ -3697,9 +3701,8 @@ const removeAchievement = (index) => {
               <button
                 type="button"
                 className="use-template-button"
-                onClick={() => handleUseTemplate(template.id)}
-                
-              >
+                 onClick={() => handleUseTemplate(template.id)}
+                >
                 Use Template
                 <strong>→</strong>
               </button>
@@ -3793,8 +3796,7 @@ const removeAchievement = (index) => {
                     <button
                       type="button"
                       className="use-template-button"
-                      onClick={() =>
-                        handleUseTemplate(template.id) 
+                      onClick={() =>handleUseTemplate(template.id) 
                         
                       }
                     >
