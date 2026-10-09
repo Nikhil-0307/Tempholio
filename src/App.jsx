@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { supabase } from "./supabase";
 import "./App.css";
 function TemplatePreview({ template, showOverlay = true, selectedTemplate, setSelectedTemplate }) {
   return (
@@ -517,7 +518,6 @@ function TemplatePreview({ template, showOverlay = true, selectedTemplate, setSe
 function App() {
   const [isSignup, setIsSignup] = useState(false);
   const [showOnboarding, setShowOnboarding] = useState(false);
-
   const [onboardingStep, setOnboardingStep] = useState(1);
   const [careerStage, setCareerStage] = useState("");
   const [field, setField] = useState("");
@@ -530,7 +530,15 @@ function App() {
   const [showPortfolioForm, setShowPortfolioForm] = useState(false);
   const [portfolioStep, setPortfolioStep] = useState(1);
   const [showLivePreview, setShowLivePreview] = useState(false);
+  const [authUser, setAuthUser] = useState(null);
+  const [authLoading, setAuthLoading] = useState(true);
+  const [authSubmitting, setAuthSubmitting] = useState(false);
+  const [authMessage, setAuthMessage] = useState("");
+  const [authEmail, setAuthEmail] = useState("");
+  const [authPassword, setAuthPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [portfolioData, setPortfolioData] = useState({
+
     
   fullName: "",
   professionalTitle: "",
@@ -592,6 +600,90 @@ achievements: [
   },
 ],
 });
+
+useEffect(() => {
+  let mounted = true;
+
+  supabase.auth.getSession().then(({ data, error }) => {
+    if (!mounted) return;
+
+    if (error) {
+      setAuthMessage(error.message);
+    }
+
+    setAuthUser(data?.session?.user ?? null);
+    setAuthLoading(false);
+  });
+
+  const {
+    data: { subscription },
+  } = supabase.auth.onAuthStateChange((_event, session) => {
+    setAuthUser(session?.user ?? null);
+    setAuthLoading(false);
+  });
+
+  return () => {
+    mounted = false;
+    subscription.unsubscribe();
+  };
+}, []);
+
+const handleAuthSubmit = async (event) => {
+  event.preventDefault();
+  setAuthMessage("");
+  setAuthSubmitting(true);
+
+  try {
+    if (!authEmail.trim() || !authPassword) {
+      setAuthMessage("Enter your email and password.");
+      return;
+    }
+
+    if (isSignup) {
+      const { data, error } = await supabase.auth.signUp({
+        email: authEmail.trim(),
+        password: authPassword,
+        options: {
+          emailRedirectTo: window.location.origin,
+        },
+      });
+
+      if (error) throw error;
+
+      if (data.session) {
+        setAuthMessage("Account created successfully!");
+      } else {
+        setAuthMessage(
+          "Account created! Check your email to confirm your account, then sign in."
+        );
+      }
+    } else {
+      const { error } = await supabase.auth.signInWithPassword({
+        email: authEmail.trim(),
+        password: authPassword,
+      });
+
+      if (error) throw error;
+
+      setAuthMessage("Signed in successfully!");
+    }
+  } catch (error) {
+    setAuthMessage(error.message || "Authentication failed.");
+  } finally {
+    setAuthSubmitting(false);
+  }
+};
+
+const handleSignOut = async () => {
+  const { error } = await supabase.auth.signOut();
+
+  if (error) {
+    setAuthMessage(error.message);
+    return;
+  }
+
+  setAuthMessage("You've signed out.");
+};
   const templates = [
   {
     id: 1,
@@ -4208,13 +4300,7 @@ if (showOnboarding) {
 
           <form
             className="auth-form"
-            onSubmit={(event) => {
-              event.preventDefault();
-
-              setShowOnboarding(true);
-              setOnboardingStep(1);
-              setOnboardingComplete(false);
-            }}
+            onSubmit={handleAuthSubmit}
           >
             {isSignup && (
               <div className="input-group">
@@ -4249,27 +4335,35 @@ if (showOnboarding) {
                   </button>
                 )}
               </div>
-
               <input
                 type="password"
                 placeholder="Enter your password"
+                value={authPassword}
+                onChange={(e) => setAuthPassword(e.target.value)}
+                autoComplete={isSignup ? "new-password" : "current-password"}
+                required
               />
             </div>
 
             {isSignup && (
               <div className="input-group">
                 <label>Confirm password</label>
-
-                <input
-                  type="password"
-                  placeholder="Confirm your password"
-                />
+                
+              <input
+                type="password"
+                placeholder="Confirm your password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                autoComplete="new-password"
+                required
+              />
               </div>
             )}
 
             <button
               type="submit"
               className="submit-button"
+              disabled={authSubmitting || authLoading}
             >
               <span>
                 {isSignup

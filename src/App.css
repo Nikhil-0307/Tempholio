@@ -3075,7 +3075,7 @@ button {
 }
 
 /* ---------------------------------------------------------
-   PREVIEW OVERLAY
+   PREVIEW OVERLAY — FIX TEMPLATE BUTTON CLICKING
    --------------------------------------------------------- */
 
 .preview-number {
@@ -3097,9 +3097,10 @@ button {
   align-items: center;
   justify-content: center;
   opacity: 0;
+  pointer-events: none;
   background: rgba(2, 28, 42, 0.52);
   backdrop-filter: blur(4px);
-  transition: 0.25s ease;
+  transition: opacity 0.25s ease;
 }
 
 .template-card:hover .preview-overlay {
@@ -3107,6 +3108,7 @@ button {
 }
 
 .preview-overlay button {
+  pointer-events: auto;
   padding: 12px 17px;
   border: 1px solid rgba(225, 250, 255, 0.3);
   border-radius: 999px;
@@ -3124,7 +3126,6 @@ button {
   border-color: #8eeeff;
   background: rgba(10, 87, 113, 0.9);
 }
-
 /* ---------------------------------------------------------
    TEMPLATE INFO
    --------------------------------------------------------- */
@@ -7093,4 +7094,45 @@ button {
   color: #19363e;
   background: rgba(53, 106, 120, 0.1);
   border-color: rgba(53, 106, 120, 0.2);
+}
+
+/* =========================================
+   TEMPLATE ACTIONS — RESTORE BUTTON SIZING
+   ========================================= */
+
+.template-card .template-actions {
+  position: relative;
+  z-index: 6;
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  width: 100%;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.template-card .template-actions .preview-button,
+.template-card .template-actions .use-template-button {
+  position: relative;
+  z-index: 7;
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 44px;
+  padding: 12px 16px;
+  font-size: 13px;
+  line-height: 1.4;
+  white-space: nowrap;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  box-sizing: border-box;
+}
+
+.template-card .preview-overlay {
+  pointer-events: none;
+}
+
+.template-card .preview-overlay button {
+  pointer-events: auto;
 }
